@@ -1,0 +1,639 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rsm:CrossIndustryInvoice xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:100"
+xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100"
+xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <rsm:ExchangedDocumentContext>
+          <ram:BusinessProcessSpecifiedDocumentContextParameter>
+               <ram:ID>B1</ram:ID>
+          </ram:BusinessProcessSpecifiedDocumentContextParameter>
+          <ram:GuidelineSpecifiedDocumentContextParameter>
+               <ram:ID>urn:cen.eu:en16931:2017</ram:ID>
+          </ram:GuidelineSpecifiedDocumentContextParameter>
+     </rsm:ExchangedDocumentContext>
+     <rsm:ExchangedDocument>
+          <ram:ID>F202500001</ram:ID>
+          <ram:TypeCode>380</ram:TypeCode>
+          <ram:IssueDateTime>
+               <udt:DateTimeString format="102">20250201</udt:DateTimeString>
+          </ram:IssueDateTime>
+          <ram:IncludedNote>
+               <ram:Content>VENDEUR SARL au capital de 50 000 EUR</ram:Content>
+               <ram:SubjectCode>REG</ram:SubjectCode>
+          </ram:IncludedNote>
+          <ram:IncludedNote>
+               <ram:Content>RCS MAVILLE 100 000 009</ram:Content>
+               <ram:SubjectCode>ABL</ram:SubjectCode>
+          </ram:IncludedNote>
+          <ram:IncludedNote>
+               <ram:Content>35 ma rue a moi,75018 PARIS, FR – contact@vendeur.fr - www.levendeur.fr  – N° TVA : FR88 100 000 009</ram:Content>
+               <ram:SubjectCode>AAI</ram:SubjectCode>
+          </ram:IncludedNote>
+          <ram:IncludedNote>
+               <ram:Content>Tout retard de paiement engendre une pénalité exigible à compter de la date d'échéance, calculée sur la base de trois fois le taux d'intérêt légal. </ram:Content>
+               <ram:SubjectCode>PMD</ram:SubjectCode>
+          </ram:IncludedNote>
+          <ram:IncludedNote>
+               <ram:Content>Indemnité forfaitaire pour frais de recouvrement en cas de retard de paiement : 40 €.</ram:Content>
+               <ram:SubjectCode>PMT</ram:SubjectCode>
+          </ram:IncludedNote>
+          <ram:IncludedNote>
+               <ram:Content>Les réglements reçus avant la date d'échéance ne donneront pas lieu à escompte.</ram:Content>
+               <ram:SubjectCode>AAB</ram:SubjectCode>
+          </ram:IncludedNote>
+          <ram:IncludedNote>
+               <ram:Content>MEMBRE_ASSUJETTI_UNIQUE</ram:Content>
+               <ram:SubjectCode>TXD</ram:SubjectCode>
+          </ram:IncludedNote>
+     </rsm:ExchangedDocument>
+     <rsm:SupplyChainTradeTransaction>
+          <ram:IncludedSupplyChainTradeLineItem>
+               <ram:AssociatedDocumentLineDocument>
+                    <ram:LineID>1</ram:LineID>
+               </ram:AssociatedDocumentLineDocument>
+               <ram:SpecifiedTradeProduct>
+                    <ram:Name>REMBOURSEMENT</ram:Name>
+                    <ram:Description>Description du remboursement</ram:Description>
+               </ram:SpecifiedTradeProduct>
+               <ram:SpecifiedLineTradeAgreement>
+                    <ram:BuyerOrderReferencedDocument>
+                         <ram:LineID>1</ram:LineID>
+                    </ram:BuyerOrderReferencedDocument>
+                     <ram:GrossPriceProductTradePrice>
+                         <ram:ChargeAmount>60.0000</ram:ChargeAmount>
+                         <ram:BasisQuantity unitCode="C62">1.0000</ram:BasisQuantity>
+                     </ram:GrossPriceProductTradePrice>
+                    <ram:NetPriceProductTradePrice>
+                         <ram:ChargeAmount>60.0000</ram:ChargeAmount>
+                         <ram:BasisQuantity unitCode="C62">1.0000</ram:BasisQuantity>
+                    </ram:NetPriceProductTradePrice>
+               </ram:SpecifiedLineTradeAgreement>
+               <ram:SpecifiedLineTradeDelivery>
+                    <ram:BilledQuantity unitCode="C62">1.0000</ram:BilledQuantity>
+               </ram:SpecifiedLineTradeDelivery>
+               <ram:SpecifiedLineTradeSettlement>
+                    <ram:ApplicableTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>E</ram:CategoryCode>
+                         <ram:RateApplicablePercent>0.00</ram:RateApplicablePercent>
+                    </ram:ApplicableTradeTax>
+                    <ram:BillingSpecifiedPeriod>
+                         <ram:StartDateTime>
+                              <udt:DateTimeString format="102">20250101</udt:DateTimeString>
+                         </ram:StartDateTime>
+                         <ram:EndDateTime>
+                              <udt:DateTimeString format="102">20250131</udt:DateTimeString>
+                         </ram:EndDateTime>
+                    </ram:BillingSpecifiedPeriod>
+                    <ram:SpecifiedTradeSettlementLineMonetarySummation>
+                         <ram:LineTotalAmount>60.00</ram:LineTotalAmount>
+                    </ram:SpecifiedTradeSettlementLineMonetarySummation>
+                    <ram:ReceivableSpecifiedTradeAccountingAccount>
+                         <ram:ID>BUY_ACC_REF</ram:ID>
+                    </ram:ReceivableSpecifiedTradeAccountingAccount>
+               </ram:SpecifiedLineTradeSettlement>
+          </ram:IncludedSupplyChainTradeLineItem>
+          <ram:IncludedSupplyChainTradeLineItem>
+               <ram:AssociatedDocumentLineDocument>
+                    <ram:LineID>2</ram:LineID>
+                    <ram:IncludedNote>
+                         <ram:Content>DONT 0,50 EUR de DEEE</ram:Content>
+                    </ram:IncludedNote>
+               </ram:AssociatedDocumentLineDocument>
+               <ram:SpecifiedTradeProduct>
+                    <ram:GlobalID schemeID="0160">598785412598745</ram:GlobalID>
+                    <ram:SellerAssignedID>ART_1254</ram:SellerAssignedID>
+                    <ram:BuyerAssignedID>REF5487</ram:BuyerAssignedID>
+                    <ram:Name>COMPOSANT</ram:Name>
+                    <ram:Description>Description de l'article</ram:Description>
+                    <ram:ApplicableProductCharacteristic>
+                         <ram:Description>CO2(g)</ram:Description>
+                         <ram:Value>12</ram:Value>
+                    </ram:ApplicableProductCharacteristic>
+                    <ram:DesignatedProductClassification>
+                         <ram:ClassCode listID="SK">SKU2578</ram:ClassCode>
+                    </ram:DesignatedProductClassification>
+                    <ram:OriginTradeCountry>
+                         <ram:ID>FR</ram:ID>
+                    </ram:OriginTradeCountry>
+               </ram:SpecifiedTradeProduct>
+               <ram:SpecifiedLineTradeAgreement>
+                    <ram:BuyerOrderReferencedDocument>
+                         <ram:LineID>4</ram:LineID>
+                    </ram:BuyerOrderReferencedDocument>
+                     <ram:GrossPriceProductTradePrice>
+                         <ram:ChargeAmount>0.8000</ram:ChargeAmount>
+                         <ram:BasisQuantity unitCode="C62">1.0000</ram:BasisQuantity>
+                          <ram:AppliedTradeAllowanceCharge>
+                              <ram:ChargeIndicator>
+                                   <udt:Indicator>false</udt:Indicator>
+                              </ram:ChargeIndicator>
+                              <ram:ActualAmount>0.1000</ram:ActualAmount>
+                          </ram:AppliedTradeAllowanceCharge>
+                     </ram:GrossPriceProductTradePrice>
+                    <ram:NetPriceProductTradePrice>
+                         <ram:ChargeAmount>0.7000</ram:ChargeAmount>
+                         <ram:BasisQuantity unitCode="C62">1.0000</ram:BasisQuantity>
+                    </ram:NetPriceProductTradePrice>
+               </ram:SpecifiedLineTradeAgreement>
+               <ram:SpecifiedLineTradeDelivery>
+                    <ram:BilledQuantity unitCode="C62">30.0000</ram:BilledQuantity>
+               </ram:SpecifiedLineTradeDelivery>
+               <ram:SpecifiedLineTradeSettlement>
+                    <ram:ApplicableTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>20.00</ram:RateApplicablePercent>
+                    </ram:ApplicableTradeTax>
+                    <ram:BillingSpecifiedPeriod>
+                         <ram:StartDateTime>
+                              <udt:DateTimeString format="102">20250101</udt:DateTimeString>
+                         </ram:StartDateTime>
+                         <ram:EndDateTime>
+                              <udt:DateTimeString format="102">20250131</udt:DateTimeString>
+                         </ram:EndDateTime>
+                    </ram:BillingSpecifiedPeriod>
+                    <ram:SpecifiedTradeAllowanceCharge>
+                         <ram:ChargeIndicator>
+                              <udt:Indicator>false</udt:Indicator>
+                         </ram:ChargeIndicator>
+                         <ram:CalculationPercent>1.00</ram:CalculationPercent>
+                         <ram:BasisAmount>100.00</ram:BasisAmount>
+                         <ram:ActualAmount>1.00</ram:ActualAmount>
+                         <ram:ReasonCode>71</ram:ReasonCode>
+                         <ram:Reason>REMISE VOLUME</ram:Reason>
+                    </ram:SpecifiedTradeAllowanceCharge>
+                    <ram:SpecifiedTradeAllowanceCharge>
+                         <ram:ChargeIndicator>
+                              <udt:Indicator>true</udt:Indicator>
+                         </ram:ChargeIndicator>
+                         <ram:ActualAmount>1.00</ram:ActualAmount>
+                         <ram:Reason>FRAIS PREPARATION</ram:Reason>
+                    </ram:SpecifiedTradeAllowanceCharge>
+                    <ram:SpecifiedTradeSettlementLineMonetarySummation>
+                         <ram:LineTotalAmount>21.00</ram:LineTotalAmount>
+                    </ram:SpecifiedTradeSettlementLineMonetarySummation>
+                    <ram:AdditionalReferencedDocument>
+                         <ram:IssuerAssignedID>TARIF_2022</ram:IssuerAssignedID>
+                          <ram:TypeCode>130</ram:TypeCode>
+                         <ram:ReferenceTypeCode>AFG</ram:ReferenceTypeCode>
+                    </ram:AdditionalReferencedDocument>
+                    <ram:ReceivableSpecifiedTradeAccountingAccount>
+                         <ram:ID>BUY_ACC_REF1</ram:ID>
+                    </ram:ReceivableSpecifiedTradeAccountingAccount>
+               </ram:SpecifiedLineTradeSettlement>
+          </ram:IncludedSupplyChainTradeLineItem>
+          <ram:IncludedSupplyChainTradeLineItem>
+               <ram:AssociatedDocumentLineDocument>
+                    <ram:LineID>3</ram:LineID>
+               </ram:AssociatedDocumentLineDocument>
+               <ram:SpecifiedTradeProduct>
+                    <ram:GlobalID schemeID="0160">598785414325437</ram:GlobalID>
+                    <ram:SellerAssignedID>ART_9874</ram:SellerAssignedID>
+                    <ram:BuyerAssignedID>REF9854</ram:BuyerAssignedID>
+                    <ram:Name>FOURNITURES MOULE</ram:Name>
+                    <ram:Description>Description du moule</ram:Description>
+                    <ram:ApplicableProductCharacteristic>
+                         <ram:Description>COULEUR</ram:Description>
+                         <ram:Value>BLANC</ram:Value>
+                    </ram:ApplicableProductCharacteristic>
+                    <ram:ApplicableProductCharacteristic>
+                         <ram:Description>CO2(g)</ram:Description>
+                         <ram:Value>30</ram:Value>
+                    </ram:ApplicableProductCharacteristic>
+               </ram:SpecifiedTradeProduct>
+               <ram:SpecifiedLineTradeAgreement>
+                    <ram:BuyerOrderReferencedDocument>
+                         <ram:LineID>3</ram:LineID>
+                    </ram:BuyerOrderReferencedDocument>
+                     <ram:GrossPriceProductTradePrice>
+                         <ram:ChargeAmount>30.0000</ram:ChargeAmount>
+                         <ram:BasisQuantity unitCode="C62">3.0000</ram:BasisQuantity>
+                     </ram:GrossPriceProductTradePrice>
+                    <ram:NetPriceProductTradePrice>
+                         <ram:ChargeAmount>30.0000</ram:ChargeAmount>
+                         <ram:BasisQuantity unitCode="C62">3.0000</ram:BasisQuantity>
+                    </ram:NetPriceProductTradePrice>
+               </ram:SpecifiedLineTradeAgreement>
+               <ram:SpecifiedLineTradeDelivery>
+                    <ram:BilledQuantity unitCode="C62">1.0000</ram:BilledQuantity>
+               </ram:SpecifiedLineTradeDelivery>
+               <ram:SpecifiedLineTradeSettlement>
+                    <ram:ApplicableTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>10.00</ram:RateApplicablePercent>
+                    </ram:ApplicableTradeTax>
+                    <ram:BillingSpecifiedPeriod>
+                         <ram:StartDateTime>
+                              <udt:DateTimeString format="102">20250101</udt:DateTimeString>
+                         </ram:StartDateTime>
+                         <ram:EndDateTime>
+                              <udt:DateTimeString format="102">20250131</udt:DateTimeString>
+                         </ram:EndDateTime>
+                    </ram:BillingSpecifiedPeriod>
+                    <ram:SpecifiedTradeSettlementLineMonetarySummation>
+                         <ram:LineTotalAmount>10.00</ram:LineTotalAmount>
+                    </ram:SpecifiedTradeSettlementLineMonetarySummation>
+                    <ram:ReceivableSpecifiedTradeAccountingAccount>
+                         <ram:ID>BUY_ACC_REF2</ram:ID>
+                    </ram:ReceivableSpecifiedTradeAccountingAccount>
+               </ram:SpecifiedLineTradeSettlement>
+          </ram:IncludedSupplyChainTradeLineItem>
+          <ram:IncludedSupplyChainTradeLineItem>
+               <ram:AssociatedDocumentLineDocument>
+                    <ram:LineID>4</ram:LineID>
+               </ram:AssociatedDocumentLineDocument>
+               <ram:SpecifiedTradeProduct>
+                    <ram:Name>SUPPORT TEL</ram:Name>
+                    <ram:Description>Description de la prestation de support associée</ram:Description>
+               </ram:SpecifiedTradeProduct>
+               <ram:SpecifiedLineTradeAgreement>
+                    <ram:BuyerOrderReferencedDocument>
+                         <ram:LineID>2</ram:LineID>
+                    </ram:BuyerOrderReferencedDocument>
+                     <ram:GrossPriceProductTradePrice>
+                         <ram:ChargeAmount>10.0000</ram:ChargeAmount>
+                         <ram:BasisQuantity unitCode="HUR">1.0000</ram:BasisQuantity>
+                          <ram:AppliedTradeAllowanceCharge>
+                              <ram:ChargeIndicator>
+                                   <udt:Indicator>false</udt:Indicator>
+                              </ram:ChargeIndicator>
+                              <ram:ActualAmount>3.0000</ram:ActualAmount>
+                          </ram:AppliedTradeAllowanceCharge>
+                     </ram:GrossPriceProductTradePrice>
+                    <ram:NetPriceProductTradePrice>
+                         <ram:ChargeAmount>7.0000</ram:ChargeAmount>
+                         <ram:BasisQuantity unitCode="HUR">1.0000</ram:BasisQuantity>
+                    </ram:NetPriceProductTradePrice>
+               </ram:SpecifiedLineTradeAgreement>
+               <ram:SpecifiedLineTradeDelivery>
+                    <ram:BilledQuantity unitCode="HUR">2.0000</ram:BilledQuantity>
+               </ram:SpecifiedLineTradeDelivery>
+               <ram:SpecifiedLineTradeSettlement>
+                    <ram:ApplicableTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>20.00</ram:RateApplicablePercent>
+                    </ram:ApplicableTradeTax>
+                    <ram:BillingSpecifiedPeriod>
+                         <ram:StartDateTime>
+                              <udt:DateTimeString format="102">20250101</udt:DateTimeString>
+                         </ram:StartDateTime>
+                         <ram:EndDateTime>
+                              <udt:DateTimeString format="102">20250131</udt:DateTimeString>
+                         </ram:EndDateTime>
+                    </ram:BillingSpecifiedPeriod>
+                    <ram:SpecifiedTradeSettlementLineMonetarySummation>
+                         <ram:LineTotalAmount>14.00</ram:LineTotalAmount>
+                    </ram:SpecifiedTradeSettlementLineMonetarySummation>
+                    <ram:ReceivableSpecifiedTradeAccountingAccount>
+                         <ram:ID>BUY_ACC_REF3</ram:ID>
+                    </ram:ReceivableSpecifiedTradeAccountingAccount>
+               </ram:SpecifiedLineTradeSettlement>
+          </ram:IncludedSupplyChainTradeLineItem>
+          <ram:ApplicableHeaderTradeAgreement>
+               <ram:BuyerReference>SERVEXEC</ram:BuyerReference>
+               <ram:SellerTradeParty>
+                    <ram:ID>PRIVATE_123</ram:ID>
+                    <ram:GlobalID schemeID="0088">587451236587</ram:GlobalID>
+                    <ram:GlobalID schemeID="0009">10000000900017</ram:GlobalID>
+                    <ram:GlobalID schemeID="0060">DUNS1235487</ram:GlobalID>
+                    <ram:GlobalID schemeID="0231">500000005</ram:GlobalID>
+                    <ram:Name>LE VENDEUR</ram:Name>
+                    <ram:Description>SARL AU CAPITAL DE 50 000 EUROS</ram:Description>
+                    <ram:SpecifiedLegalOrganization>
+                         <ram:ID schemeID="0002">100000009</ram:ID>
+                         <ram:TradingBusinessName>VENDEUR NOM COMMERCIAL</ram:TradingBusinessName>
+                    </ram:SpecifiedLegalOrganization>
+                    <ram:DefinedTradeContact>
+                         <ram:PersonName>MME CONTACT</ram:PersonName>
+                         <ram:DepartmentName>DEP ADV</ram:DepartmentName>
+                         <ram:TelephoneUniversalCommunication>
+                              <ram:CompleteNumber>01 02 03 54 87</ram:CompleteNumber>
+                         </ram:TelephoneUniversalCommunication>
+                         <ram:EmailURIUniversalCommunication>
+                              <ram:URIID>contact@vendeur.fr</ram:URIID>
+                         </ram:EmailURIUniversalCommunication>
+                    </ram:DefinedTradeContact>
+                    <ram:PostalTradeAddress>
+                         <ram:PostcodeCode>75018</ram:PostcodeCode>
+                         <ram:LineOne>35 rue d'ici</ram:LineOne>
+                         <ram:LineTwo>ligne 2 vendeur</ram:LineTwo>
+                         <ram:CityName>PARIS</ram:CityName>
+                         <ram:CountryID>FR</ram:CountryID>
+                    </ram:PostalTradeAddress>
+                    <ram:URIUniversalCommunication>
+                         <ram:URIID schemeID="0225">100000009_STATUTS</ram:URIID>
+                    </ram:URIUniversalCommunication>
+                    <ram:SpecifiedTaxRegistration>
+                         <ram:ID schemeID="VA">FR88100000009</ram:ID>
+                    </ram:SpecifiedTaxRegistration>
+               </ram:SellerTradeParty>
+               <ram:BuyerTradeParty>
+                    <ram:ID>privateID</ram:ID>
+                    <ram:GlobalID schemeID="0088">3654789851</ram:GlobalID>
+                    <ram:Name>LE CLIENT</ram:Name>
+                    <ram:SpecifiedLegalOrganization>
+                         <ram:ID schemeID="0002">200000008</ram:ID>
+                    </ram:SpecifiedLegalOrganization>
+                    <ram:DefinedTradeContact>
+                         <ram:PersonName>Contact ACHETEUR</ram:PersonName>
+                         <ram:DepartmentName>DEP COMPTAFOUR</ram:DepartmentName>
+                         <ram:TelephoneUniversalCommunication>
+                              <ram:CompleteNumber>01 01 25 45 87</ram:CompleteNumber>
+                         </ram:TelephoneUniversalCommunication>
+                         <ram:EmailURIUniversalCommunication>
+                              <ram:URIID>contact@acheteur.fr</ram:URIID>
+                         </ram:EmailURIUniversalCommunication>
+                    </ram:DefinedTradeContact>
+                    <ram:PostalTradeAddress>
+                         <ram:PostcodeCode>06000</ram:PostcodeCode>
+                         <ram:LineOne>MON ADRESSE LIGNE 1</ram:LineOne>
+                         <ram:LineTwo>acheteur ligne 2</ram:LineTwo>
+                         <ram:LineThree>acheteur ligne 3</ram:LineThree>
+                         <ram:CityName>MA VILLE</ram:CityName>
+                         <ram:CountryID>FR</ram:CountryID>
+                    </ram:PostalTradeAddress>
+                    <ram:URIUniversalCommunication>
+                         <ram:URIID schemeID="0225">200000008</ram:URIID>
+                    </ram:URIUniversalCommunication>
+                    <ram:SpecifiedTaxRegistration>
+                         <ram:ID schemeID="VA">FR37200000008</ram:ID>
+                    </ram:SpecifiedTaxRegistration>
+               </ram:BuyerTradeParty>
+               <ram:SellerTaxRepresentativeTradeParty>
+                    <ram:Name>ASSUJETTI UNIQUE VENDEUR</ram:Name>
+                    <ram:PostalTradeAddress>
+                         <ram:PostcodeCode>75007</ram:PostcodeCode>
+                         <ram:LineOne>75 rue labas</ram:LineOne>
+                         <ram:LineTwo>Assujetti Unique ligne 2</ram:LineTwo>
+                         <ram:CityName>PARIS</ram:CityName>
+                         <ram:CountryID>FR</ram:CountryID>
+                    </ram:PostalTradeAddress>
+                    <ram:SpecifiedTaxRegistration>
+                         <ram:ID schemeID="VA">FR78500000005</ram:ID>
+                    </ram:SpecifiedTaxRegistration>
+               </ram:SellerTaxRepresentativeTradeParty>
+               <ram:SellerOrderReferencedDocument>
+                    <ram:IssuerAssignedID>BON VENTE REF 2547</ram:IssuerAssignedID>
+               </ram:SellerOrderReferencedDocument>
+               <ram:BuyerOrderReferencedDocument>
+                    <ram:IssuerAssignedID>PO201925478</ram:IssuerAssignedID>
+               </ram:BuyerOrderReferencedDocument>
+               <ram:ContractReferencedDocument>
+                    <ram:IssuerAssignedID>CT2018120802</ram:IssuerAssignedID>
+               </ram:ContractReferencedDocument>
+               <ram:AdditionalReferencedDocument>
+                    <ram:IssuerAssignedID>REF_ANNEXE_009875</ram:IssuerAssignedID>
+                    <ram:URIID>url:gffter</ram:URIID>
+                    <ram:TypeCode>916</ram:TypeCode>
+                    <ram:Name>DOCUMENT_ANNEXE</ram:Name>
+               </ram:AdditionalReferencedDocument>
+               <ram:AdditionalReferencedDocument>
+                    <ram:IssuerAssignedID>APPEL_OFFRE-FRE0087</ram:IssuerAssignedID>
+                    <ram:TypeCode>50</ram:TypeCode>
+               </ram:AdditionalReferencedDocument>
+               <ram:AdditionalReferencedDocument>
+                    <ram:IssuerAssignedID>REF_CLIENT2514</ram:IssuerAssignedID>
+                    <ram:TypeCode>130</ram:TypeCode>
+                    <ram:ReferenceTypeCode>IT</ram:ReferenceTypeCode>
+               </ram:AdditionalReferencedDocument>
+               <ram:SpecifiedProcuringProject>
+                    <ram:ID>PROJET_2547</ram:ID>
+                    <ram:Name>Project reference</ram:Name>
+               </ram:SpecifiedProcuringProject>
+          </ram:ApplicableHeaderTradeAgreement>
+          <ram:ApplicableHeaderTradeDelivery>
+               <ram:ShipToTradeParty>
+                    <ram:ID>PRIVATE_ID_DELIVERY</ram:ID>
+                    <ram:Name>NOM LIVRé</ram:Name>
+                    <ram:PostalTradeAddress>
+                         <ram:PostcodeCode>06000</ram:PostcodeCode>
+                         <ram:LineOne>ADRESSE LIVRAISON LIGNE 1</ram:LineOne>
+                         <ram:LineTwo>AD LIV ligne 2</ram:LineTwo>
+                         <ram:CityName>NICE</ram:CityName>
+                         <ram:CountryID>FR</ram:CountryID>
+                    </ram:PostalTradeAddress>
+               </ram:ShipToTradeParty>
+               <ram:ActualDeliverySupplyChainEvent>
+                    <ram:OccurrenceDateTime>
+                         <udt:DateTimeString format="102">20250131</udt:DateTimeString>
+                    </ram:OccurrenceDateTime>
+               </ram:ActualDeliverySupplyChainEvent>
+               <ram:DespatchAdviceReferencedDocument>
+                    <ram:IssuerAssignedID>AVISLIVRAISON_007654</ram:IssuerAssignedID>
+               </ram:DespatchAdviceReferencedDocument>
+               <ram:ReceivingAdviceReferencedDocument>
+                    <ram:IssuerAssignedID>BON_RECEPT_002</ram:IssuerAssignedID>
+               </ram:ReceivingAdviceReferencedDocument>
+          </ram:ApplicableHeaderTradeDelivery>
+          <ram:ApplicableHeaderTradeSettlement>
+               <ram:PaymentReference>F202500001_200000008</ram:PaymentReference>
+               <ram:InvoiceCurrencyCode>EUR</ram:InvoiceCurrencyCode>
+               <ram:PayeeTradeParty>
+                    <ram:GlobalID schemeID="0088">587451236586</ram:GlobalID>
+                    <ram:Name>TIERS Bénéficiaire</ram:Name>
+                    <ram:SpecifiedLegalOrganization>
+                         <ram:ID schemeID="0002">300000007</ram:ID>
+                    </ram:SpecifiedLegalOrganization>
+               </ram:PayeeTradeParty>
+               <ram:SpecifiedTradeSettlementPaymentMeans>
+                    <ram:TypeCode>30</ram:TypeCode>
+                    <ram:Information>Virement</ram:Information>
+                    <ram:PayerPartyDebtorFinancialAccount>
+                         <ram:IBANID>CPTE DEBIT</ram:IBANID>
+                    </ram:PayerPartyDebtorFinancialAccount>
+                    <ram:PayeePartyCreditorFinancialAccount>
+                         <ram:IBANID>FR20 1254 2547 2569 8542 5874 698</ram:IBANID>
+                         <ram:AccountName>MON COMPTE BANCAIRE</ram:AccountName>
+                         <ram:ProprietaryID>FRXX IBAN CPTE DEBIT</ram:ProprietaryID>
+                    </ram:PayeePartyCreditorFinancialAccount>
+                    <ram:PayeeSpecifiedCreditorFinancialInstitution>
+                         <ram:BICID>BIC_MONCOMPTE</ram:BICID>
+                    </ram:PayeeSpecifiedCreditorFinancialInstitution>
+               </ram:SpecifiedTradeSettlementPaymentMeans>
+               <ram:ApplicableTradeTax>
+                    <ram:CalculatedAmount>7.80</ram:CalculatedAmount>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:BasisAmount>39.00</ram:BasisAmount>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:DueDateTypeCode>5</ram:DueDateTypeCode>
+                    <ram:RateApplicablePercent>20.00</ram:RateApplicablePercent>
+               </ram:ApplicableTradeTax>
+               <ram:ApplicableTradeTax>
+                    <ram:CalculatedAmount>0.00</ram:CalculatedAmount>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:ExemptionReason>REMBOURSEMENT</ram:ExemptionReason>
+                    <ram:BasisAmount>60.00</ram:BasisAmount>
+                    <ram:CategoryCode>E</ram:CategoryCode>
+                    <ram:ExemptionReasonCode>VATEX-EU-79-C</ram:ExemptionReasonCode>
+                    <ram:DueDateTypeCode>5</ram:DueDateTypeCode>
+                    <ram:RateApplicablePercent>0.00</ram:RateApplicablePercent>
+               </ram:ApplicableTradeTax>
+               <ram:ApplicableTradeTax>
+                    <ram:CalculatedAmount>0.90</ram:CalculatedAmount>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:BasisAmount>9.00</ram:BasisAmount>
+                    <ram:CategoryCode>S</ram:CategoryCode>
+                    <ram:DueDateTypeCode>5</ram:DueDateTypeCode>
+                    <ram:RateApplicablePercent>10.00</ram:RateApplicablePercent>
+               </ram:ApplicableTradeTax>
+               <ram:ApplicableTradeTax>
+                    <ram:CalculatedAmount>0.00</ram:CalculatedAmount>
+                    <ram:TypeCode>VAT</ram:TypeCode>
+                    <ram:ExemptionReason>LIVRAISON INTRACOMMUNAUTAIRE</ram:ExemptionReason>
+                    <ram:BasisAmount>2.00</ram:BasisAmount>
+                    <ram:CategoryCode>K</ram:CategoryCode>
+                    <ram:ExemptionReasonCode>VATEX-EU-IC</ram:ExemptionReasonCode>
+                    <ram:DueDateTypeCode>5</ram:DueDateTypeCode>
+                    <ram:RateApplicablePercent>0.00</ram:RateApplicablePercent>
+               </ram:ApplicableTradeTax>
+               <ram:BillingSpecifiedPeriod>
+                    <ram:StartDateTime>
+                         <udt:DateTimeString format="102">20250101</udt:DateTimeString>
+                    </ram:StartDateTime>
+                    <ram:EndDateTime>
+                         <udt:DateTimeString format="102">20250131</udt:DateTimeString>
+                    </ram:EndDateTime>
+               </ram:BillingSpecifiedPeriod>
+               <ram:SpecifiedTradeAllowanceCharge>
+                    <ram:ChargeIndicator>
+                         <udt:Indicator>false</udt:Indicator>
+                    </ram:ChargeIndicator>
+                    <ram:CalculationPercent>5.00</ram:CalculationPercent>
+                    <ram:BasisAmount>100.00</ram:BasisAmount>
+                    <ram:ActualAmount>5.00</ram:ActualAmount>
+                    <ram:ReasonCode>95</ram:ReasonCode>
+                    <ram:Reason>REMISE COMMERCIALE_1</ram:Reason>
+                    <ram:CategoryTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>20.00</ram:RateApplicablePercent>
+                    </ram:CategoryTradeTax>
+               </ram:SpecifiedTradeAllowanceCharge>
+               <ram:SpecifiedTradeAllowanceCharge>
+                    <ram:ChargeIndicator>
+                         <udt:Indicator>false</udt:Indicator>
+                    </ram:ChargeIndicator>
+                    <ram:CalculationPercent>1.00</ram:CalculationPercent>
+                    <ram:BasisAmount>100.00</ram:BasisAmount>
+                    <ram:ActualAmount>1.00</ram:ActualAmount>
+                    <ram:ReasonCode>100</ram:ReasonCode>
+                    <ram:Reason>REMISE COMMERCIALE_2</ram:Reason>
+                    <ram:CategoryTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>20.00</ram:RateApplicablePercent>
+                    </ram:CategoryTradeTax>
+               </ram:SpecifiedTradeAllowanceCharge>
+               <ram:SpecifiedTradeAllowanceCharge>
+                    <ram:ChargeIndicator>
+                         <udt:Indicator>false</udt:Indicator>
+                    </ram:ChargeIndicator>
+                    <ram:CalculationPercent>1.00</ram:CalculationPercent>
+                    <ram:BasisAmount>100.00</ram:BasisAmount>
+                    <ram:ActualAmount>1.00</ram:ActualAmount>
+                    <ram:ReasonCode>100</ram:ReasonCode>
+                    <ram:Reason>REMISE COMMERCIALE_3</ram:Reason>
+                    <ram:CategoryTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>20.00</ram:RateApplicablePercent>
+                    </ram:CategoryTradeTax>
+               </ram:SpecifiedTradeAllowanceCharge>
+               <ram:SpecifiedTradeAllowanceCharge>
+                    <ram:ChargeIndicator>
+                         <udt:Indicator>false</udt:Indicator>
+                    </ram:ChargeIndicator>
+                    <ram:CalculationPercent>2.00</ram:CalculationPercent>
+                    <ram:BasisAmount>100.00</ram:BasisAmount>
+                    <ram:ActualAmount>2.00</ram:ActualAmount>
+                    <ram:Reason>REMISE COMMERCIALE_4</ram:Reason>
+                    <ram:CategoryTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>10.00</ram:RateApplicablePercent>
+                    </ram:CategoryTradeTax>
+               </ram:SpecifiedTradeAllowanceCharge>
+               <ram:SpecifiedTradeAllowanceCharge>
+                    <ram:ChargeIndicator>
+                         <udt:Indicator>true</udt:Indicator>
+                    </ram:ChargeIndicator>
+                    <ram:CalculationPercent>10.00</ram:CalculationPercent>
+                    <ram:BasisAmount>100.00</ram:BasisAmount>
+                    <ram:ActualAmount>10.00</ram:ActualAmount>
+                    <ram:ReasonCode>FC</ram:ReasonCode>
+                    <ram:Reason>FRAIS DEPLACEMENT_1</ram:Reason>
+                    <ram:CategoryTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>20.00</ram:RateApplicablePercent>
+                    </ram:CategoryTradeTax>
+               </ram:SpecifiedTradeAllowanceCharge>
+               <ram:SpecifiedTradeAllowanceCharge>
+                    <ram:ChargeIndicator>
+                         <udt:Indicator>true</udt:Indicator>
+                    </ram:ChargeIndicator>
+                    <ram:CalculationPercent>1.00</ram:CalculationPercent>
+                    <ram:BasisAmount>100.00</ram:BasisAmount>
+                    <ram:ActualAmount>1.00</ram:ActualAmount>
+                    <ram:ReasonCode>ADR</ram:ReasonCode>
+                    <ram:Reason>AUTRE CHARGE</ram:Reason>
+                    <ram:CategoryTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>20.00</ram:RateApplicablePercent>
+                    </ram:CategoryTradeTax>
+               </ram:SpecifiedTradeAllowanceCharge>
+               <ram:SpecifiedTradeAllowanceCharge>
+                    <ram:ChargeIndicator>
+                         <udt:Indicator>true</udt:Indicator>
+                    </ram:ChargeIndicator>
+                    <ram:ActualAmount>2.00</ram:ActualAmount>
+                    <ram:ReasonCode>FC</ram:ReasonCode>
+                    <ram:Reason>FRAIS DEPLACEMENT_2</ram:Reason>
+                    <ram:CategoryTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>K</ram:CategoryCode>
+                         <ram:RateApplicablePercent>0.00</ram:RateApplicablePercent>
+                    </ram:CategoryTradeTax>
+               </ram:SpecifiedTradeAllowanceCharge>
+               <ram:SpecifiedTradeAllowanceCharge>
+                    <ram:ChargeIndicator>
+                         <udt:Indicator>true</udt:Indicator>
+                    </ram:ChargeIndicator>
+                    <ram:ActualAmount>1.00</ram:ActualAmount>
+                    <ram:ReasonCode>FC</ram:ReasonCode>
+                    <ram:Reason>FRAIS DEPLACEMENT_3</ram:Reason>
+                    <ram:CategoryTradeTax>
+                         <ram:TypeCode>VAT</ram:TypeCode>
+                         <ram:CategoryCode>S</ram:CategoryCode>
+                         <ram:RateApplicablePercent>10.00</ram:RateApplicablePercent>
+                    </ram:CategoryTradeTax>
+               </ram:SpecifiedTradeAllowanceCharge>
+               <ram:SpecifiedTradePaymentTerms>
+                    <ram:Description>PAIEMENT 30 JOURS NET</ram:Description>
+                    <ram:DueDateDateTime>
+                         <udt:DateTimeString format="102">20250303</udt:DateTimeString>
+                    </ram:DueDateDateTime>
+                    <ram:DirectDebitMandateID>REF MANDAT ICS</ram:DirectDebitMandateID>
+               </ram:SpecifiedTradePaymentTerms>
+               <ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+                    <ram:LineTotalAmount>105.00</ram:LineTotalAmount>
+                    <ram:ChargeTotalAmount>14.00</ram:ChargeTotalAmount>
+                    <ram:AllowanceTotalAmount>9.00</ram:AllowanceTotalAmount>
+                    <ram:TaxBasisTotalAmount>110.00</ram:TaxBasisTotalAmount>
+                    <ram:TaxTotalAmount currencyID="EUR">8.70</ram:TaxTotalAmount>
+                     <ram:RoundingAmount>0.00</ram:RoundingAmount>
+                    <ram:GrandTotalAmount>118.70</ram:GrandTotalAmount>
+                    <ram:TotalPrepaidAmount>0.00</ram:TotalPrepaidAmount>
+                    <ram:DuePayableAmount>118.70</ram:DuePayableAmount>
+               </ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+               <ram:ReceivableSpecifiedTradeAccountingAccount>
+                    <ram:ID>REF COMPTABLE ACHETEUR</ram:ID>
+               </ram:ReceivableSpecifiedTradeAccountingAccount>
+          </ram:ApplicableHeaderTradeSettlement>
+     </rsm:SupplyChainTradeTransaction>
+</rsm:CrossIndustryInvoice>
