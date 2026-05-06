@@ -13,7 +13,7 @@ use App\Flow\Validation\FlowValidationResults;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 use Tiime\FacturX\Reader;
 
-#[AutoconfigureTag('pdplibre.flow.format_handler')]
+#[AutoconfigureTag('pdplibre.flow.format_validator')]
 final readonly class FacturXFlowFormatValidator extends AbstractFlowFormatValidator
 {
     use XmlLoader;

@@ -13,7 +13,7 @@ use App\Flow\Validation\FlowValidationResults;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 use Tiime\UniversalBusinessLanguage\Ubl21\Invoice\UniversalBusinessLanguage;
 
-#[AutoconfigureTag('pdplibre.flow.format_handler')]
+#[AutoconfigureTag('pdplibre.flow.format_validator')]
 final readonly class UblFlowFormatValidator extends AbstractFlowFormatValidator
 {
     use XmlLoader;

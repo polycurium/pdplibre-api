@@ -10,24 +10,25 @@ use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
 final class FlowFormatValidatorRegistry
 {
     /** @var array<string, FlowFormatValidator> */
-    private array $handlers = [];
+    private array $flowFormatValidators = [];
 
+    /** @param FlowFormatValidator[] $flowFormatValidators */
     public function __construct(
-        #[AutowireIterator('pdplibre.flow.format_handler')]
-        iterable $handlers,
+        #[AutowireIterator('pdplibre.flow.format_validator')]
+        iterable $flowFormatValidators,
     ) {
-        foreach ($handlers as $handler) {
-            $syntax = $handler->getSupportedSyntax();
-            if (isset($this->handlers[$syntax->value])) {
-                throw new \LogicException(\sprintf('Duplicate flow format handler found for syntax "%s".', $syntax->value));
+        foreach ($flowFormatValidators as $flowFormatValidator) {
+            $syntax = $flowFormatValidator->getAllowedSyntax();
+            if (isset($this->flowFormatValidators[$syntax->value])) {
+                throw new \LogicException(\sprintf('Duplicate flow format validator found for syntax "%s".', $syntax->value));
             }
-            $this->handlers[$syntax->value] = $handler;
+            $this->flowFormatValidators[$syntax->value] = $flowFormatValidator;
         }
     }
 
-    public function getHandler(FlowSyntax $syntax): FlowFormatValidator
+    public function getFormatValidator(FlowSyntax $syntax): FlowFormatValidator
     {
-        return $this->handlers[$syntax->value]
-            ?? throw new \InvalidArgumentException(\sprintf('No flow format handler found for syntax "%s".', $syntax->value));
+        return $this->flowFormatValidators[$syntax->value]
+            ?? throw new \InvalidArgumentException(\sprintf('No flow format validator found for syntax "%s".', $syntax->value));
     }
 }

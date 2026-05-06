@@ -19,7 +19,7 @@ use Tiime\CrossIndustryInvoice\EN16931\CrossIndustryInvoice as EN16931CrossIndus
 use Tiime\CrossIndustryInvoice\Flux1\CrossIndustryInvoice as Flux1CrossIndustryInvoice;
 use Tiime\CrossIndustryInvoice\Minimum\CrossIndustryInvoice as MinimumCrossIndustryInvoice;
 
-#[AutoconfigureTag('pdplibre.flow.format_handler')]
+#[AutoconfigureTag('pdplibre.flow.format_validator')]
 final readonly class CiiFlowFormatValidator extends AbstractFlowFormatValidator
 {
     use XmlLoader;

@@ -11,7 +11,7 @@ use App\Flow\Validation\FlowValidationContext;
 use App\Flow\Validation\FlowValidationResults;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
-#[AutoconfigureTag('pdplibre.flow.format_handler')]
+#[AutoconfigureTag('pdplibre.flow.format_validator')]
 final readonly class FrrFlowFormatValidator extends AbstractFlowFormatValidator
 {
     public function getAllowedSyntax(): FlowSyntax
