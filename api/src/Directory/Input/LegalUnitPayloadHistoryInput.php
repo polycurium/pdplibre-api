@@ -6,10 +6,6 @@ namespace App\Directory\Input;
 
 use App\Directory\Enum\EntityType;
 use App\Directory\Enum\LegalUnitAdministrativeStatus;
-use App\Flow\Doctrine\Entity\Flow;
-use App\Flow\Enum\FlowProfile;
-use App\Flow\Enum\FlowSyntax;
-use App\Flow\Enum\ProcessingRule;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

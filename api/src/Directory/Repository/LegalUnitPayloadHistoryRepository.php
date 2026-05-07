@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Directory\Repository;
 
 use App\Directory\Doctrine\Entity\LegalUnitPayloadHistory;
+use App\Directory\Input\SearchSirenFilters;
+use App\Directory\Input\SearchSirenSorting;
 
 interface LegalUnitPayloadHistoryRepository
 {
@@ -26,4 +28,16 @@ interface LegalUnitPayloadHistoryRepository
 
     public function getSirenByIdInstance(int $id): ?LegalUnitPayloadHistory;
     public function getSirenBySirenNumber(string $siren): ?LegalUnitPayloadHistory;
+
+    //TODO rajouter ignore
+    /**
+     * @return array<LegalUnitPayloadHistory>
+     */
+    /**
+     * @param array<SearchSirenSorting> $sorting
+     */
+    /**
+     * @param array<string> $fields
+     */
+    public function search(SearchSirenFilters $filters, ?array $sorting, ?array $fields, ?int $limit): array;
 }

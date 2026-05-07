@@ -15,7 +15,7 @@ final readonly class GetSirenBySirenNumber
     {
     }
 
-    public function __invoke(string $userId, string $siren): LegalUnitPayloadHistoryOutput
+    public function __invoke(string $siren): LegalUnitPayloadHistoryOutput
     {
         $legalUnitPayloadHistory = $this->repository->getSirenBySirenNumber($siren);
 

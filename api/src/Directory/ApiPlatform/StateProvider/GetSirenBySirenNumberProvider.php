@@ -36,7 +36,7 @@ final class GetSirenBySirenNumberProvider implements ProviderInterface
         assert(isset($uriVariables['siren']));
 
         try {
-            $result = $this->action->__invoke($currentUser->getId(), $uriVariables['siren']);
+            $result = $this->action->__invoke($uriVariables['siren']);
         } catch (ObjectNotFoundException $e) {
             throw new NotFoundHttpException($e->getMessage(), $e);
         } catch (InvalidInputException $e) {

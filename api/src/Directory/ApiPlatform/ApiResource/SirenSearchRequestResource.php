@@ -9,7 +9,10 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Response;
+use App\Directory\ApiPlatform\StateProcessor\SearchSirenProcessor;
 use App\Directory\Input\LegalUnitPayloadHistoryInput;
+use App\Directory\Input\SearchSirenFilters;
+use App\Directory\Input\SearchSirenSorting;
 use App\Flow\ApiPlatform\StateProcessor\SearchFlowProcessor;
 use App\Flow\Input\SearchFlowFilters;
 use App\Flow\ValueObjects\SearchFlowInput;
@@ -38,10 +41,17 @@ use Symfony\Component\Validator\Constraints as Assert;
             description: 'Multi-criteria company search.',
         ),
         output: LegalUnitPayloadHistoryInput::class,
-        name: 'searchFlow',
+        name: 'searchSiren',
         processor: SearchSirenProcessor::class,
     ),
 ])]
+
+/**
+ * @param array<SearchSirenSorting> $sorting
+ */
+/**
+ * @param array<string> $fields
+ */
 final class SirenSearchRequestResource
 {
     #[Assert\Range(min: 1, max: 100)]
@@ -50,6 +60,18 @@ final class SirenSearchRequestResource
         default: 25,
     )]
     public int $limit = 25;
+
+    #[Assert\NotBlank]
+    #[Assert\Valid]
+    public SearchSirenFilters $filters;
+
+    #[Assert\NotBlank]
+    #[Assert\Valid]
+    public array $sorting;
+
+    #[Assert\NotBlank]
+    #[Assert\Valid]
+    public array $fields;
 
     // TODO rajouter ignore
 }
