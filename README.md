@@ -9,4 +9,9 @@ Standard [API Platform](https://api-platform.com/) application.
 
 ## Installation
 
-- Run `docker compose up -d` to build and start the containers
+- Run `docker compose up --build -d` to build and start the containers.
+- Later, you can just do `docker compose start` or `docker compose stop` to start/stop the project.
+
+## API
+
+The API source code is in the `api/` directory. Refer to its [README](./api/README.md) for the docs.
