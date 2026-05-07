@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Flow\ValueObjects;
 
+use App\Common\Exception\InvalidInputException;
 use App\Flow\ApiPlatform\ApiResource\CreateFlowResource;
 use App\Flow\Doctrine\Entity\Flow;
 use App\Flow\Enum\FlowProcessingRuleSource;
 use App\Flow\Enum\FlowProfile;
 use App\Flow\Enum\FlowSyntax;
 use App\Flow\Enum\ProcessingRule;
-use App\Common\Exception\InvalidInputException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 final readonly class ValidFlowInput

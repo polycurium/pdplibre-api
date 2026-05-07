@@ -7,7 +7,7 @@ use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 
 /**
- * Simpler method to use API Platform's exception
+ * Simpler method to use API Platform's exception.
  */
 class ApiValidationException
 {

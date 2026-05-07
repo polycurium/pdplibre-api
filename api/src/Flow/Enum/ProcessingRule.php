@@ -42,6 +42,6 @@ enum ProcessingRule: string
     /** @return array<self> */
     public static function standardCases(): array
     {
-        return \array_filter(self::cases(), static fn (self $case) => $case !== self::PendingQualification);
+        return \array_filter(self::cases(), static fn (self $case) => self::PendingQualification !== $case);
     }
 }

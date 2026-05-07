@@ -5,7 +5,7 @@ namespace App\Common;
 trait XmlLoader
 {
     /**
-     * @throws \DOMException in case of invalid XML content.
+     * @throws \DOMException in case of invalid XML content
      */
     protected static function loadXml(string $xmlContent): \DOMDocument
     {

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Flow\Input;
 
+use App\Common\Exception\InvalidInputException;
 use App\Flow\Enum\FlowAckStatus;
 use App\Flow\Enum\FlowDirection;
 use App\Flow\Enum\FlowType;
 use App\Flow\Enum\ProcessingRule;
-use App\Common\Exception\InvalidInputException;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\IsTrue;
 
