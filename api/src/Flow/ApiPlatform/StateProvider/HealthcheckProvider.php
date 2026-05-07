@@ -6,7 +6,7 @@ namespace App\Flow\ApiPlatform\StateProvider;
 
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
-use App\Flow\ApiPlatform\ApiResource\Healthcheck;
+use App\Flow\ApiPlatform\ApiResource\HealthcheckResource;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception as DBALException;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -23,7 +23,7 @@ final readonly class HealthcheckProvider implements ProviderInterface
         try {
             $this->connection->executeQuery('SELECT 1');
 
-            return new Healthcheck();
+            return new HealthcheckResource();
         } catch (\Throwable $e) {
             $isDatabaseError = $e instanceof DBALException;
 

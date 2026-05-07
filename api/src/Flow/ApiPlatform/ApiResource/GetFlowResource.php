@@ -23,6 +23,6 @@ use App\Flow\ValueObjects\FlowOutput;
         ],
     ),
 ])]
-final class GetFlow
+final class GetFlowResource
 {
 }

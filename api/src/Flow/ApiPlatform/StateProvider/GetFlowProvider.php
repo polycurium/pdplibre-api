@@ -8,7 +8,7 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
 use App\Flow\Actions\GetFlow as GetFlowAction;
-use App\Flow\ApiPlatform\ApiResource\GetFlow as GetFlowResource;
+use App\Flow\ApiPlatform\ApiResource\GetFlowResource as GetFlowResource;
 use App\Flow\Files\Exception\FileNotFoundException;
 use App\Flow\ValueObjects\FlowFileStream;
 use App\Common\ApiPlatform\ApiValidationException;

@@ -28,6 +28,6 @@ use App\Flow\ApiPlatform\StateProvider\HealthcheckProvider;
         provider: HealthcheckProvider::class,
     ),
 ])]
-final class Healthcheck
+final class HealthcheckResource
 {
 }
