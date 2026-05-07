@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Flow\Validation;
+namespace App\Common\Validation;
 
 interface ValidatorInterface
 {

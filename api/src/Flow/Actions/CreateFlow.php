@@ -9,7 +9,7 @@ use App\Flow\Doctrine\Entity\Flow;
 use App\Flow\Validation\Data\FlowAsyncValidationMessage;
 use App\Flow\Validation\FlowValidationContext;
 use App\Flow\Validation\Format\FlowFormatValidatorRegistry;
-use App\Flow\Validation\ValidatorInterface;
+use App\Common\Validation\ValidatorInterface;
 use App\Flow\ValueObjects\ValidFlowInput;
 use App\Common\MessageBus\MessageBusInterface;
 use App\User\Doctrine\Entity\ApiConsumer;
