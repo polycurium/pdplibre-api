@@ -2,10 +2,12 @@
 
 namespace App\Common\Validation;
 
+use RuntimeException;
+
 interface ValidatorInterface
 {
     /**
-     * @throws ValidationException
+     * @throws RuntimeException in case of any error.
      */
     public function validate(object $input): void;
 }

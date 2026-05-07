@@ -2,8 +2,8 @@
 
 namespace App\Common\ApiPlatform;
 
-use ApiPlatform\Symfony\Validator\Validator as ApiPlatformValidator;
-use ApiPlatform\Validator\ValidatorInterface;
+use ApiPlatform\Validator\ValidatorInterface as ApiPlatformValidator;
+use App\Common\Validation\ValidatorInterface;
 
 final readonly class Validator implements ValidatorInterface
 {
@@ -12,8 +12,8 @@ final readonly class Validator implements ValidatorInterface
     ) {
     }
 
-    public function validate(object $data, array $context = []): void
+    public function validate(object $input): void
     {
-        $this->validator->validate($data, $context);
+        $this->validator->validate($input);
     }
 }
