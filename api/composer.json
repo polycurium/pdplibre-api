@@ -20,6 +20,7 @@
         "symfony/flex": "^2.10",
         "symfony/framework-bundle": "7.4.*",
         "symfony/mercure-bundle": "^v0.4.2",
+        "symfony/messenger": "*",
         "symfony/monolog-bundle": "^v4.0.2",
         "symfony/property-access": "7.4.*",
         "symfony/property-info": "7.4.*",
