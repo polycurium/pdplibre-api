@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Flow\Validation\Format\Validators;
 
-use;
 use App\Common\XmlLoader;
 use App\Flow\Doctrine\Entity\Flow;
 use App\Flow\Enum\FlowSyntax;
