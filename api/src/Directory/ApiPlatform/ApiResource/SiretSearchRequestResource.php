@@ -9,18 +9,15 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\Response;
-use App\Directory\ApiPlatform\StateProcessor\SearchSirenProcessor;
-use App\Directory\Input\LegalUnitPayloadHistoryInput;
-use App\Directory\Input\SearchSirenFilters;
-use App\Directory\Input\SearchSirenSorting;
-use App\Flow\ApiPlatform\StateProcessor\SearchFlowProcessor;
-use App\Flow\Input\SearchFlowFilters;
-use App\Flow\ValueObjects\SearchFlowInput;
+use App\Directory\ApiPlatform\StateProcessor\SearchSiretProcessor;
+use App\Directory\Input\FacilityPayloadHistoryInput;
+use App\Directory\Input\SearchSiretFilters;
+use App\Directory\Input\SearchSiretSorting;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ApiResource(operations: [
     new Post(
-        uriTemplate: '/v1/siren/search',
+        uriTemplate: '/v1/siret/search',
         outputFormats: ['json'],
         status: 200,
         openapi: new Operation(
@@ -38,22 +35,22 @@ use Symfony\Component\Validator\Constraints as Assert;
                 '501' => new Response(description: 'Not implemented.'),
                 '503' => new Response(description: 'Service unavailable'),
             ],
-            summary: 'SIREN search (or legal unit)',
-            description: 'Multi-criteria company search.',
+            summary: 'Search for a SIRET (facility)',
+            description: 'Multi-criteria search for facilities.',
         ),
-        output: LegalUnitPayloadHistoryInput::class,
-        name: 'searchSiren',
-        processor: SearchSirenProcessor::class,
+        output: FacilityPayloadHistoryInput::class,
+        name: 'searchSiret',
+        processor: SearchSiretProcessor::class,
     ),
 ])]
 
 /**
- * @param array<SearchSirenSorting> $sorting
+ * @param array<SearchSiretSorting> $sorting
  */
 /**
  * @param array<string> $fields
  */
-final class SirenSearchRequestResource
+final class SiretSearchRequestResource
 {
     #[Assert\Range(min: 1, max: 100)]
     #[ApiProperty(
@@ -64,7 +61,7 @@ final class SirenSearchRequestResource
 
     #[Assert\NotBlank]
     #[Assert\Valid]
-    public SearchSirenFilters $filters;
+    public SearchSiretFilters $filters;
 
     #[Assert\NotBlank]
     #[Assert\Valid]
@@ -75,4 +72,5 @@ final class SirenSearchRequestResource
     public array $fields;
 
     // TODO rajouter ignore
+    // TODO rajouter include
 }

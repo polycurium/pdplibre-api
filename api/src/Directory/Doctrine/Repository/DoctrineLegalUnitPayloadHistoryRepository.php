@@ -45,31 +45,31 @@ final class DoctrineLegalUnitPayloadHistoryRepository extends ServiceEntityRepos
             ->setMaxResults($limit);
 
         if (null !== $filters->siren && $filters->siren->operator === ContainsOperator::opContains) {
-            $qb->andWhere('legalUnitPayloadHistory.siren IN (:siren)')
-                ->setParameter('siren', $filters->siren->siren);
+            $qb->andWhere('legalUnitPayloadHistory.siren LIKE :siren')
+                ->setParameter('siren', '%'.$filters->siren->siren.'%');
         }
 
         if (null !== $filters->businessName && $filters->businessName->operator === ContainsOperator::opContains) {
-            $qb->andWhere('legalUnitPayloadHistory.businessName IN (:businessName)')
-                ->setParameter('businessName', $filters->businessName->businessName);
+            $qb->andWhere('legalUnitPayloadHistory.businessName LIKE :businessName')
+                ->setParameter('businessName', '%'.$filters->businessName->businessName.'%');
         }
 
         if (null !== $filters->entityType && $filters->entityType->operator === StrictOperator::opStrict) {
-            $qb->andWhere('legalUnitPayloadHistory.entityType IN (:entityType)')
+            $qb->andWhere('legalUnitPayloadHistory.entityType = :entityType')
                 ->setParameter('entityType', $filters->entityType->entityType);
         }
 
         if (null !== $filters->administrativeStatus && $filters->administrativeStatus->operator === StrictOperator::opStrict) {
-            $qb->andWhere('legalUnitPayloadHistory.administrativeStatus IN (:administrativeStatus)')
+            $qb->andWhere('legalUnitPayloadHistory.administrativeStatus = :administrativeStatus')
                 ->setParameter('administrativeStatus', $filters->administrativeStatus->administrativeStatus);
         }
 
         foreach ($sorting as $sort) {
             if($sort->order === Order::ascending) {
-                $qb->addOrderBy('legalUnitPayloadHistory' . $sort->field, 'ASC');
+                $qb->addOrderBy('legalUnitPayloadHistory.' . $sort->field, 'ASC');
             }
             elseif($sort->order === Order::descending) {
-                $qb->addOrderBy('legalUnitPayloadHistory' . $sort->field, 'DESC');
+                $qb->addOrderBy('legalUnitPayloadHistory.' . $sort->field, 'DESC');
             }
         }
 

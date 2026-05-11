@@ -17,7 +17,7 @@ final readonly class SearchSiren
     ) {
     }
 
-    public function __invoke(ApiConsumer $currentUser, SirenSearchRequestResource $input): SearchSirenInput
+    public function __invoke(SirenSearchRequestResource $input): SearchSirenInput
     {
         $results = array_map(
             LegalUnitPayloadHistoryOutput::fromEntity(...),

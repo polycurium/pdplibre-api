@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Directory\Repository;
 
 use App\Directory\Doctrine\Entity\FacilityPayloadHistory;
-use App\Directory\Input\SearchSirenFilters;
-use App\Directory\Input\SearchSirenSorting;
+use App\Directory\Input\SearchSiretFilters;
+use App\Directory\Input\SearchSiretSorting;
 
 interface FacilityPayloadHistoryRepository
 {
@@ -29,15 +29,16 @@ interface FacilityPayloadHistoryRepository
     public function getSiretByIdInstance(int $id): ?FacilityPayloadHistory;
     public function getSiretBySiretNumber(string $siret): ?FacilityPayloadHistory;
 
-//    //TODO rajouter ignore
-//    /**
-//     * @return array<FacilityPayloadHistory>
-//     */
-//    /**
-//     * @param array<SearchSirenSorting> $sorting
-//     */
-//    /**
-//     * @param array<string> $fields
-//     */
-//    public function search(SearchSirenFilters $filters, ?array $sorting, ?array $fields, ?int $limit): array;
+    //TODO rajouter ignore
+    //TODO rajouter include
+    /**
+     * @return array<FacilityPayloadHistory>
+     */
+    /**
+     * @param array<SearchSiretSorting> $sorting
+     */
+    /**
+     * @param array<string> $fields
+     */
+    public function search(SearchSiretFilters $filters, ?array $sorting, ?array $fields, ?int $limit): array;
 }

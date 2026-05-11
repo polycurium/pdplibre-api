@@ -19,10 +19,10 @@ class AddressRead
     private string $addressLine1;
 
     #[ORM\Column(length: 255)]
-    private string $addressLine2;
+    private ?string $addressLine2;
 
     #[ORM\Column(length: 255)]
-    private string $addressLine3;
+    private ?string $addressLine3;
 
     #[ORM\Column(length: 5)]
     private string $postalCode;
