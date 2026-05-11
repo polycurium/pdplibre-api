@@ -12,7 +12,9 @@ use App\Common\Exception\InvalidInputException;
 use App\Common\Exception\ObjectNotFoundException;
 use App\Directory\ApiPlatform\ApiResource\GetSirenBySirenNumber;
 use App\Directory\Actions\GetSirenBySirenNumber as GetSirenBySirenNumberAction;
+use App\Directory\Validation\GetSirenBySirenNumberValidator;
 use App\User\Doctrine\Entity\ApiConsumer;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -20,7 +22,8 @@ final class GetSirenBySirenNumberProvider implements ProviderInterface
 {
     public function __construct(
         private TokenStorageInterface $tokenStorage,
-        private  GetSirenBySirenNumberAction $action,
+        private GetSirenBySirenNumberAction $action,
+        private GetSirenBySirenNumberValidator $validator,
     ) {
     }
 
@@ -35,7 +38,13 @@ final class GetSirenBySirenNumberProvider implements ProviderInterface
 
         assert(isset($uriVariables['siren']));
 
+        /** @var Request|null $request */
+        $request = $context['request'] ?? null;
+
+        $fields = $request?->query->all('fields');
+
         try {
+            $this->validator->validate($uriVariables['siren'], $fields);
             $result = $this->action->__invoke($uriVariables['siren']);
         } catch (ObjectNotFoundException $e) {
             throw new NotFoundHttpException($e->getMessage(), $e);

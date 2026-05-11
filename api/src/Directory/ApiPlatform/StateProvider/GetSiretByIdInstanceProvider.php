@@ -12,7 +12,9 @@ use App\Common\Exception\InvalidInputException;
 use App\Common\Exception\ObjectNotFoundException;
 use App\Directory\Actions\GetSiretByIdInstance as GetSiretByIdInstanceAction;
 use App\Directory\ApiPlatform\ApiResource\GetSiretByIdInstance;
+use App\Directory\Validation\GetSiretByIdInstanceValidator;
 use App\User\Doctrine\Entity\ApiConsumer;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -20,7 +22,8 @@ final class GetSiretByIdInstanceProvider implements ProviderInterface
 {
     public function __construct(
         private TokenStorageInterface $tokenStorage,
-        private  GetSiretByIdInstanceAction $action,
+        private GetSiretByIdInstanceAction $action,
+        private GetSiretByIdInstanceValidator $validator,
     ) {
     }
 
@@ -35,7 +38,13 @@ final class GetSiretByIdInstanceProvider implements ProviderInterface
 
         assert(isset($uriVariables['id-instance']));
 
+        /** @var Request|null $request */
+        $request = $context['request'] ?? null;
+
+        $fields = $request?->query->all('fields');
+
         try {
+            $this->validator->validate($uriVariables['id-instance'], $fields);
             $result = $this->action->__invoke($uriVariables['id-instance']);
         } catch (ObjectNotFoundException $e) {
             throw new NotFoundHttpException($e->getMessage(), $e);
