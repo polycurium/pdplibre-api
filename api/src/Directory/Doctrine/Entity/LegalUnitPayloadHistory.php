@@ -7,7 +7,6 @@ namespace App\Directory\Doctrine\Entity;
 use App\Directory\Enum\EntityType;
 use App\Directory\Enum\LegalUnitAdministrativeStatus;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity]
 class LegalUnitPayloadHistory

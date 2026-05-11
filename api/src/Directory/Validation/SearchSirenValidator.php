@@ -73,7 +73,7 @@ final readonly class SearchSirenValidator
             }
 
             if(!$sort->order) {
-                throw new InvalidInputException('sorting', 'sorting order must exist');
+                throw new InvalidInputException('sorting', 'Sorting order must exist');
             }
         }
     }
