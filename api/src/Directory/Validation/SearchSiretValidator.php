@@ -57,7 +57,7 @@ final readonly class SearchSiretValidator
         }
     }
 
-    private function validateFilters(SearchSiretFilters $filters): void
+    private function validateFilters(?SearchSiretFilters $filters): void
     {
         if ($filters->siret !== null && !preg_match('/^\d{14}$/', $filters->siret->siret)) {
             throw new InvalidInputException(
@@ -75,6 +75,30 @@ final readonly class SearchSiretValidator
             throw new InvalidInputException(
                 'postalCode',
                 'postalCode must be exactly 5 digits (0-9)'
+            );
+        }
+        if($filters->name !== null && $filters->name->name === '') {
+            throw new InvalidInputException(
+                'name',
+                'name cannot be empty'
+            );
+        }
+        if($filters->addressLines !== null && $filters->addressLines->addressLines === '') {
+            throw new InvalidInputException(
+                'addressLines',
+                'addressLines cannot be empty'
+            );
+        }
+        if($filters->countrySubdivision !== null && $filters->countrySubdivision->countrySubdivision === '') {
+            throw new InvalidInputException(
+                'countrySubdivision',
+                'countrySubdivision cannot be empty'
+            );
+        }
+        if($filters->locality !== null && $filters->locality->locality === '') {
+            throw new InvalidInputException(
+                'locality',
+                'locality cannot be empty'
             );
         }
     }

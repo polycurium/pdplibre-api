@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Directory\Validation;
 
 use App\Common\Exception\InvalidInputException;
+use App\Directory\Enum\EntityType;
+use App\Directory\Enum\LegalUnitAdministrativeStatus;
 use App\Directory\Input\SearchSirenFilters;
 use App\Directory\Input\SearchSirenSorting;
 
@@ -48,12 +50,19 @@ final readonly class SearchSirenValidator
         }
     }
 
-    private function validateFilters(SearchSirenFilters $filters): void
+    private function validateFilters(?SearchSirenFilters $filters): void
     {
         if ($filters->siren !== null && !preg_match('/^\d{9}$/', $filters->siren->siren)) {
             throw new InvalidInputException(
                 'siren',
                 'siren must be exactly 9 digits (0-9)'
+            );
+        }
+
+        if($filters->businessName !== null && $filters->businessName->businessName === '') {
+            throw new InvalidInputException(
+                'businessName',
+                'businessName cannot be empty'
             );
         }
     }

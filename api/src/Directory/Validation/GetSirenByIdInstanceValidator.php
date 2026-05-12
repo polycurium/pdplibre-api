@@ -25,7 +25,7 @@ final readonly class GetSirenByIdInstanceValidator
     private function validateIdInstance(int $idInstance): void
     {
         if (!$idInstance) {
-            throw new InvalidInputException('idInstance', 'idInstance cannot be null');
+            throw new InvalidInputException('idInstance', 'idInstance cannot be 0');
         }
     }
 
