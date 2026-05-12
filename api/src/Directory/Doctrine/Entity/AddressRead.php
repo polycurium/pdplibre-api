@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace App\Directory\Doctrine\Entity;
 
-use App\Directory\Enum\DiffusionStatus;
-use App\Directory\Enum\FacilityAdministrativeStatus;
-use App\Directory\Enum\FacilityType;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]

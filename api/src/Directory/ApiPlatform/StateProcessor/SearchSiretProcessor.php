@@ -12,6 +12,7 @@ use App\Common\Exception\InvalidInputException;
 use App\Common\Exception\ObjectNotFoundException;
 use App\Directory\Actions\SearchSiret;
 use App\Directory\ApiPlatform\ApiResource\SiretSearchRequestResource;
+use App\Directory\Validation\SearchSiretValidator;
 use App\Directory\ValueObjects\SearchSiretInput;
 use App\User\Doctrine\Entity\ApiConsumer;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,6 +25,7 @@ final class SearchSiretProcessor implements ProcessorInterface
     public function __construct(
         private TokenStorageInterface $tokenStorage,
         private SearchSiret $action,
+        private SearchSiretValidator $validator,
         private TranslatorInterface $translator,
     ) {
     }
@@ -43,6 +45,7 @@ final class SearchSiretProcessor implements ProcessorInterface
         assert(SiretSearchRequestResource::class === $operation->getClass());
 
         try {
+            $this->validator->validate($data->fields, $data->filters, $data->sorting);
             return $this->action->__invoke($data);
         } catch (ObjectNotFoundException $e) {
             throw new NotFoundHttpException($e->getMessage(), $e);

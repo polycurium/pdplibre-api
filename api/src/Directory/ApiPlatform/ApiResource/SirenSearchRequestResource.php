@@ -66,10 +66,12 @@ final class SirenSearchRequestResource
     #[Assert\Valid]
     public SearchSirenFilters $filters;
 
+    /**var array<SearchSirenSorting>*/
     #[Assert\NotBlank]
     #[Assert\Valid]
     public array $sorting;
 
+    /**var array<string>*/
     #[Assert\NotBlank]
     #[Assert\Valid]
     public array $fields;
