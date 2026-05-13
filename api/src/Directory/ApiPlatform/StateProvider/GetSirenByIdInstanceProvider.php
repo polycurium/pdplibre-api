@@ -36,7 +36,7 @@ final class GetSirenByIdInstanceProvider implements ProviderInterface
         assert('getSirenByIdInstance' === $operation->getName());
         assert(GetSirenByIdInstance::class === $operation->getClass());
 
-        assert(isset($uriVariables['id-instance']));
+        assert(isset($uriVariables['idInstance']));
 
         /** @var Request|null $request */
         $request = $context['request'] ?? null;
@@ -44,8 +44,8 @@ final class GetSirenByIdInstanceProvider implements ProviderInterface
         $fields = $request?->query->all('fields');
 
         try {
-            $this->validator->validate($uriVariables['id-instance'], $fields);
-            $result = $this->action->__invoke($uriVariables['id-instance']);
+            $this->validator->validate((int)$uriVariables['idInstance'], $fields);
+            $result = $this->action->__invoke((int)$uriVariables['idInstance'], $fields);
         } catch (ObjectNotFoundException $e) {
             throw new NotFoundHttpException($e->getMessage(), $e);
         } catch (InvalidInputException $e) {

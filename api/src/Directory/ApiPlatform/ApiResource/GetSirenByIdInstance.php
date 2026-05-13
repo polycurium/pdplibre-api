@@ -12,7 +12,7 @@ use App\Directory\ValueObjects\LegalUnitPayloadHistoryOutput;
 
 #[ApiResource(operations: [
     new Get(
-        uriTemplate: '/v1/siren/id-instance:{id-instance}',
+        uriTemplate: '/v1/siren/id-instance:{idInstance}',
         outputFormats: ['json'],
         output: LegalUnitPayloadHistoryOutput::class,
         validate: false,

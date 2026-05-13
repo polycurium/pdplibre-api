@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class FacilityPayloadHistory
 {
     #[ORM\Id]
+    #[ORM\Column(unique: true)]
     private int $idInstance;
 
     #[ORM\Column(length: 14)]
@@ -42,7 +43,7 @@ class FacilityPayloadHistory
     private B2gAdditionalData $b2gAdditionalData;
 
     #[ORM\ManyToOne(cascade: ['persist'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(referencedColumnName: 'id_instance', nullable: false)]
     private LegalUnitPayloadHistory $legalUnit;
 
     public function getIdInstance(): int

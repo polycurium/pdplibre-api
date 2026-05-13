@@ -8,25 +8,40 @@ use App\Directory\Doctrine\Entity\LegalUnitPayloadHistory;
 use App\Directory\Enum\EntityType;
 use App\Directory\Enum\LegalUnitAdministrativeStatus;
 
-final readonly class LegalUnitPayloadHistoryOutput
+final class LegalUnitPayloadHistoryOutput
 {
-    public function __construct(
-        public int $idInstance,
-        public string $siren,
-        public string $businessName,
-        public EntityType $entityType,
-        public LegalUnitAdministrativeStatus $administrativeStatus,
-    ) {
-    }
+    public ?int $idInstance = null;
+    public ?string $siren = null;
+    public ?string $businessName = null;
+    public ?EntityType $entityType = null;
+    public ?LegalUnitAdministrativeStatus $administrativeStatus = null;
 
-    public static function fromEntity(LegalUnitPayloadHistory $legalUnitPayloadHistory): self
+    public static function fromEntity(LegalUnitPayloadHistory $legalUnitPayloadHistory, ?array $fields = null): self
     {
-        return new self(
-            idInstance: $legalUnitPayloadHistory->getIdInstance(),
-            siren: $legalUnitPayloadHistory->getSiren(),
-            businessName: $legalUnitPayloadHistory->getBusinessName(),
-            entityType: $legalUnitPayloadHistory->getEntityType(),
-            administrativeStatus: $legalUnitPayloadHistory->getAdministrativeStatus(),
-        );
+        $self = new self();
+
+        $returnAll = !$fields;
+
+        if ($returnAll || in_array('idInstance', $fields, true)) {
+            $self->idInstance = $legalUnitPayloadHistory->getIdInstance();
+        }
+
+        if ($returnAll || in_array('siren', $fields, true)) {
+            $self->siren = $legalUnitPayloadHistory->getSiren();
+        }
+
+        if ($returnAll || in_array('businessName', $fields, true)) {
+            $self->businessName = $legalUnitPayloadHistory->getBusinessName();
+        }
+
+        if ($returnAll || in_array('entityType', $fields, true)) {
+            $self->entityType = $legalUnitPayloadHistory->getEntityType();
+        }
+
+        if ($returnAll || in_array('administrativeStatus', $fields, true)) {
+            $self->administrativeStatus = $legalUnitPayloadHistory->getAdministrativeStatus();
+        }
+
+        return $self;
     }
 }

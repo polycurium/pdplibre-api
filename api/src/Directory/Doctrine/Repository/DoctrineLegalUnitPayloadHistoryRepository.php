@@ -39,7 +39,7 @@ final class DoctrineLegalUnitPayloadHistoryRepository extends ServiceEntityRepos
     }
 
     //TODO rajouter ignore
-    public function search(SearchSirenFilters $filters, ?array $sorting, ?array $fields, ?int $limit): array
+    public function search(SearchSirenFilters $filters, ?array $sorting, ?int $limit): array
     {
         $qb = $this->createQueryBuilder('legalUnitPayloadHistory')
             ->setMaxResults($limit);
@@ -71,10 +71,6 @@ final class DoctrineLegalUnitPayloadHistoryRepository extends ServiceEntityRepos
             elseif($sort->order === Order::descending) {
                 $qb->addOrderBy('legalUnitPayloadHistory.' . $sort->field, 'DESC');
             }
-        }
-
-        foreach ($fields as $field) {
-            $qb->addSelect('legalUnitPayloadHistory.' . $field);
         }
 
         return $qb->getQuery()->getResult();

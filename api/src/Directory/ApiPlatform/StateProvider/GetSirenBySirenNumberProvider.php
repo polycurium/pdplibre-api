@@ -45,7 +45,7 @@ final class GetSirenBySirenNumberProvider implements ProviderInterface
 
         try {
             $this->validator->validate($uriVariables['siren'], $fields);
-            $result = $this->action->__invoke($uriVariables['siren']);
+            $result = $this->action->__invoke($uriVariables['siren'], $fields);
         } catch (ObjectNotFoundException $e) {
             throw new NotFoundHttpException($e->getMessage(), $e);
         } catch (InvalidInputException $e) {

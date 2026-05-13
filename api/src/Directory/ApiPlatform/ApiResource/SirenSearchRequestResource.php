@@ -60,7 +60,7 @@ final class SirenSearchRequestResource
         description: 'Maximum number of results that may be returned',
         default: 25,
     )]
-    public int $limit = 25;
+    public ?int $limit = 25;
 
     #[Assert\NotBlank]
     #[Assert\Valid]
@@ -69,12 +69,12 @@ final class SirenSearchRequestResource
     /**var array<SearchSirenSorting>*/
     #[Assert\NotBlank]
     #[Assert\Valid]
-    public array $sorting;
+    public ?array $sorting = null;
 
     /**var array<string>*/
     #[Assert\NotBlank]
     #[Assert\Valid]
-    public array $fields;
+    public ?array $fields = null;
 
     // TODO rajouter ignore
 }

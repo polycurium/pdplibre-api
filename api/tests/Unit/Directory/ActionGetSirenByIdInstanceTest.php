@@ -43,6 +43,35 @@ final class ActionGetSirenByIdInstanceTest extends TestCase
         self::assertSame(LegalUnitAdministrativeStatus::A, $result->administrativeStatus);
     }
 
+    public function testReturnsOutputWithFields(): void
+    {
+        $entity = $this->createMock(LegalUnitPayloadHistory::class);
+
+        $entity->method('getIdInstance')->willReturn(1);
+        $entity->method('getSiren')->willReturn('123456789');
+        $entity->method('getBusinessName')->willReturn('test business name');
+        $entity->method('getEntityType')->willReturn(EntityType::Public);
+        $entity->method('getAdministrativeStatus')->willReturn(LegalUnitAdministrativeStatus::A);
+
+        $repository = $this->createMock(LegalUnitPayloadHistoryRepository::class);
+
+        $repository
+            ->expects($this->once())
+            ->method('getSirenByIdInstance')
+            ->with(1)
+            ->willReturn($entity);
+
+        $action = new GetSirenByIdInstance($repository);
+
+        $result = $action->__invoke(1, ['siren', 'businessName']);
+
+        self::assertNull($result->idInstance);
+        self::assertSame('123456789', $result->siren);
+        self::assertSame('test business name', $result->businessName);
+        self::assertNull($result->entityType);
+        self::assertNull($result->administrativeStatus);
+    }
+
     public function testThrowsIfNotFound(): void
     {
         $repository = $this->createMock(LegalUnitPayloadHistoryRepository::class);

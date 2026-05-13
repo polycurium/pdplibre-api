@@ -31,20 +31,55 @@ final class ActionSearchSirenTest extends TestCase
         $filters->businessName = new SearchSirenFiltersBusinessName();
         $filters->businessName->businessName = 'test business name';
 
+        $input = new SirenSearchRequestResource();
+        $input->filters = $filters;
+
+        $repository = $this->createMock(LegalUnitPayloadHistoryRepository::class);
+
+        $repository
+            ->expects($this->once())
+            ->method('search')
+            ->with(
+                $filters
+            )
+            ->willReturn([$entity]);
+
+        $action = new SearchSiren($repository);
+
+        $result = $action->__invoke($input);
+
+        self::assertSame(25, $result->limit);
+        self::assertSame($filters, $result->filters);
+        self::assertNull($result->sorting);
+        self::assertNull($result->fields);
+        self::assertSame(1, $result->results[0]->idInstance);
+        self::assertSame('123456789', $result->results[0]->siren);
+        self::assertSame('test business name', $result->results[0]->businessName);
+        self::assertSame(EntityType::Public, $result->results[0]->entityType);
+        self::assertSame(LegalUnitAdministrativeStatus::A, $result->results[0]->administrativeStatus);
+    }
+
+    public function testReturnsMappedResultsWithSorting(): void
+    {
+        $entity = $this->createMock(LegalUnitPayloadHistory::class);
+
+        $entity->method('getIdInstance')->willReturn(1);
+        $entity->method('getSiren')->willReturn('123456789');
+        $entity->method('getBusinessName')->willReturn('test business name');
+        $entity->method('getEntityType')->willReturn(EntityType::Public);
+        $entity->method('getAdministrativeStatus')->willReturn(LegalUnitAdministrativeStatus::A);
+
+        $filters = new SearchSirenFilters();
+        $filters->businessName = new SearchSirenFiltersBusinessName();
+        $filters->businessName->businessName = 'test business name';
+
         $sorting = [
             'businessName',
         ];
 
-        $fields = [
-            'siren',
-            'businessName',
-        ];
-
         $input = new SirenSearchRequestResource();
-        $input->limit = 10;
         $input->filters = $filters;
         $input->sorting = $sorting;
-        $input->fields = $fields;
 
         $repository = $this->createMock(LegalUnitPayloadHistoryRepository::class);
 
@@ -53,8 +88,51 @@ final class ActionSearchSirenTest extends TestCase
             ->method('search')
             ->with(
                 $filters,
-                $sorting,
-                $fields,
+                $sorting
+            )
+            ->willReturn([$entity]);
+
+        $action = new SearchSiren($repository);
+
+        $result = $action->__invoke($input);
+
+        self::assertSame(25, $result->limit);
+        self::assertSame($filters, $result->filters);
+        self::assertSame($sorting, $result->sorting);
+        self::assertNull($result->fields);
+        self::assertSame(1, $result->results[0]->idInstance);
+        self::assertSame('123456789', $result->results[0]->siren);
+        self::assertSame('test business name', $result->results[0]->businessName);
+        self::assertSame(EntityType::Public, $result->results[0]->entityType);
+        self::assertSame(LegalUnitAdministrativeStatus::A, $result->results[0]->administrativeStatus);
+    }
+
+    public function testReturnsMappedResultsWithLimit(): void
+    {
+        $entity = $this->createMock(LegalUnitPayloadHistory::class);
+
+        $entity->method('getIdInstance')->willReturn(1);
+        $entity->method('getSiren')->willReturn('123456789');
+        $entity->method('getBusinessName')->willReturn('test business name');
+        $entity->method('getEntityType')->willReturn(EntityType::Public);
+        $entity->method('getAdministrativeStatus')->willReturn(LegalUnitAdministrativeStatus::A);
+
+        $filters = new SearchSirenFilters();
+        $filters->businessName = new SearchSirenFiltersBusinessName();
+        $filters->businessName->businessName = 'test business name';
+
+        $input = new SirenSearchRequestResource();
+        $input->limit = 10;
+        $input->filters = $filters;
+
+        $repository = $this->createMock(LegalUnitPayloadHistoryRepository::class);
+
+        $repository
+            ->expects($this->once())
+            ->method('search')
+            ->with(
+                $filters,
+                null,
                 10
             )
             ->willReturn([$entity]);
@@ -65,13 +143,61 @@ final class ActionSearchSirenTest extends TestCase
 
         self::assertSame(10, $result->limit);
         self::assertSame($filters, $result->filters);
-        self::assertSame($sorting, $result->sorting);
-        self::assertSame($fields, $result->fields);
+        self::assertNull($result->sorting);
+        self::assertNull($result->fields);
         self::assertSame(1, $result->results[0]->idInstance);
         self::assertSame('123456789', $result->results[0]->siren);
         self::assertSame('test business name', $result->results[0]->businessName);
         self::assertSame(EntityType::Public, $result->results[0]->entityType);
         self::assertSame(LegalUnitAdministrativeStatus::A, $result->results[0]->administrativeStatus);
+    }
+
+    public function testReturnsMappedResultsWithFields(): void
+    {
+        $entity = $this->createMock(LegalUnitPayloadHistory::class);
+
+        $entity->method('getIdInstance')->willReturn(1);
+        $entity->method('getSiren')->willReturn('123456789');
+        $entity->method('getBusinessName')->willReturn('test business name');
+        $entity->method('getEntityType')->willReturn(EntityType::Public);
+        $entity->method('getAdministrativeStatus')->willReturn(LegalUnitAdministrativeStatus::A);
+
+        $filters = new SearchSirenFilters();
+        $filters->businessName = new SearchSirenFiltersBusinessName();
+        $filters->businessName->businessName = 'test business name';
+
+        $fields = [
+            'siren',
+            'businessName',
+        ];
+
+        $input = new SirenSearchRequestResource();
+        $input->filters = $filters;
+        $input->fields = $fields;
+
+        $repository = $this->createMock(LegalUnitPayloadHistoryRepository::class);
+
+        $repository
+            ->expects($this->once())
+            ->method('search')
+            ->with(
+                $filters
+            )
+            ->willReturn([$entity]);
+
+        $action = new SearchSiren($repository);
+
+        $result = $action->__invoke($input);
+
+        self::assertSame(25, $result->limit);
+        self::assertSame($filters, $result->filters);
+        self::assertNull($result->sorting);
+        self::assertSame($fields, $result->fields);
+        self::assertNull($result->results[0]->idInstance);
+        self::assertSame('123456789', $result->results[0]->siren);
+        self::assertSame('test business name', $result->results[0]->businessName);
+        self::assertNull($result->results[0]->entityType);
+        self::assertNull($result->results[0]->administrativeStatus);
     }
 
     public function testReturnsEmptyResults(): void
@@ -103,7 +229,6 @@ final class ActionSearchSirenTest extends TestCase
             ->with(
                 $filters,
                 $sorting,
-                $fields,
                 10
             )
             ->willReturn([]);

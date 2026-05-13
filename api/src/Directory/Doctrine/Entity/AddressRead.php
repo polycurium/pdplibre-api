@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 class AddressRead
 {
     #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
     private int $id;
 
     #[ORM\Column(length: 255)]

@@ -36,8 +36,5 @@ interface LegalUnitPayloadHistoryRepository
     /**
      * @param array<SearchSirenSorting> $sorting
      */
-    /**
-     * @param array<string> $fields
-     */
-    public function search(SearchSirenFilters $filters, ?array $sorting, ?array $fields, ?int $limit): array;
+    public function search(SearchSirenFilters $filters, ?array $sorting, ?int $limit): array;
 }

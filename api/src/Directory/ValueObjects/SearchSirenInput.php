@@ -16,12 +16,12 @@ final readonly class SearchSirenInput
      * @param array<SearchSirenSorting> $sorting
      */
     public function __construct(
-        public int $limit,
-         // TODO public int $ignore,
+        public ?int $limit = null,
+         // TODO public ?int $ignore = null,
         public SearchSirenFilters $filters,
-        public array $sorting,
-        public array $fields,
-        public array $results
+        public ?array $sorting = null,
+        public ?array $fields = null,
+        public ?array $results = null
     ) {
     }
 }

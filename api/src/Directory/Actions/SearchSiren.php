@@ -19,15 +19,17 @@ final readonly class SearchSiren
 
     public function __invoke(SirenSearchRequestResource $input): SearchSirenInput
     {
-        $results = array_map(
-            LegalUnitPayloadHistoryOutput::fromEntity(...),
-            $this->repository->search(
-                $input->filters,
-                $input->sorting,
-                $input->fields,
-                $input->limit
-            ),
+        $entities = $this->repository->search(
+            $input->filters,
+            $input->sorting,
+            $input->limit
         );
+
+        $results = [];
+
+        foreach ($entities as $entity) {
+            $results[] = LegalUnitPayloadHistoryOutput::fromEntity($entity, $input->fields);
+        }
 
         return new SearchSirenInput(
             limit: $input->limit,

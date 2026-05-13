@@ -15,7 +15,7 @@ final readonly class GetSirenByIdInstance
     {
     }
 
-    public function __invoke(int $idInstance): LegalUnitPayloadHistoryOutput
+    public function __invoke(int $idInstance, ?array $fields = null): LegalUnitPayloadHistoryOutput
     {
         $legalUnitPayloadHistory = $this->repository->getSirenByIdInstance($idInstance);
 
@@ -23,6 +23,6 @@ final readonly class GetSirenByIdInstance
             throw new ObjectNotFoundException('SIREN not found');
         }
 
-        return LegalUnitPayloadHistoryOutput::fromEntity($legalUnitPayloadHistory);
+        return LegalUnitPayloadHistoryOutput::fromEntity($legalUnitPayloadHistory, $fields);
     }
 }

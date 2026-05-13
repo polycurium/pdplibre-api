@@ -19,6 +19,8 @@ use Symfony\Component\Uid\Uuid;
 class B2gAdditionalData
 {
     #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
     private int $id;
 
     #[ORM\Column]

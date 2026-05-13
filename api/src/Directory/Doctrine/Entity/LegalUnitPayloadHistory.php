@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class LegalUnitPayloadHistory
 {
     #[ORM\Id]
+    #[ORM\Column(unique: true)]
     private int $idInstance;
 
     #[ORM\Column(length: 9)]
@@ -25,6 +26,18 @@ class LegalUnitPayloadHistory
 
     #[ORM\Column]
     private LegalUnitAdministrativeStatus $administrativeStatus;
+
+    public static function create(int $idInstance, string $siren, string $businessName, EntityType $entityType, LegalUnitAdministrativeStatus $administrativeStatus,): self {
+        $self = new self();
+
+        $self->idInstance = $idInstance;
+        $self->siren = $siren;
+        $self->businessName = $businessName;
+        $self->entityType = $entityType;
+        $self->administrativeStatus = $administrativeStatus;
+
+        return $self;
+    }
 
     public function getIdInstance(): int
     {
