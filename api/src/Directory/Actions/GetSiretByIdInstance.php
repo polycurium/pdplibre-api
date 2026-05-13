@@ -15,7 +15,7 @@ final readonly class GetSiretByIdInstance
     {
     }
 
-    public function __invoke(int $idInstance): FacilityPayloadHistoryOutput
+    public function __invoke(int $idInstance, ?array $fields = null): FacilityPayloadHistoryOutput
     {
         $facilityPayloadHistory = $this->repository->getSiretByIdInstance($idInstance);
 
@@ -23,6 +23,6 @@ final readonly class GetSiretByIdInstance
             throw new ObjectNotFoundException('SIREN not found');
         }
 
-        return FacilityPayloadHistoryOutput::fromEntity($facilityPayloadHistory);
+        return FacilityPayloadHistoryOutput::fromEntity($facilityPayloadHistory, $fields);
     }
 }

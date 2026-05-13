@@ -57,7 +57,7 @@ final class SiretSearchRequestResource
         description: 'Maximum number of results that may be returned',
         default: 25,
     )]
-    public int $limit = 25;
+    public ?int $limit = 25;
 
     #[Assert\NotBlank]
     #[Assert\Valid]
@@ -65,11 +65,11 @@ final class SiretSearchRequestResource
 
     #[Assert\NotBlank]
     #[Assert\Valid]
-    public array $sorting;
+    public ?array $sorting = null;
 
     #[Assert\NotBlank]
     #[Assert\Valid]
-    public array $fields;
+    public ?array $fields = null;
 
     // TODO rajouter ignore
     // TODO rajouter include

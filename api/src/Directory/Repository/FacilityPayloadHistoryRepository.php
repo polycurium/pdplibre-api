@@ -37,8 +37,5 @@ interface FacilityPayloadHistoryRepository
     /**
      * @param array<SearchSiretSorting> $sorting
      */
-    /**
-     * @param array<string> $fields
-     */
-    public function search(SearchSiretFilters $filters, ?array $sorting, ?array $fields, ?int $limit): array;
+    public function search(SearchSiretFilters $filters, ?array $sorting, ?int $limit): array;
 }

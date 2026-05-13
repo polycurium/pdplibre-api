@@ -12,7 +12,7 @@ use App\Directory\ValueObjects\FacilityPayloadHistoryOutput;
 
 #[ApiResource(operations: [
     new Get(
-        uriTemplate: '/v1/siret/id-instance:{id-instance}',
+        uriTemplate: '/v1/siret/id-instance:{idInstance}',
         outputFormats: ['json'],
         output: FacilityPayloadHistoryOutput::class,
         validate: false,

@@ -18,15 +18,17 @@ final readonly class SearchSiret
 
     public function __invoke(SiretSearchRequestResource $input): SearchSiretInput
     {
-        $results = array_map(
-            FacilityPayloadHistoryOutput::fromEntity(...),
-            $this->repository->search(
-                $input->filters,
-                $input->sorting,
-                $input->fields,
-                $input->limit
-            ),
+        $entities = $this->repository->search(
+            $input->filters,
+            $input->sorting,
+            $input->limit
         );
+
+        $results = [];
+
+        foreach ($entities as $entity) {
+            $results[] = FacilityPayloadHistoryOutput::fromEntity($entity, $input->fields);
+        }
 
         return new SearchSiretInput(
             limit: $input->limit,

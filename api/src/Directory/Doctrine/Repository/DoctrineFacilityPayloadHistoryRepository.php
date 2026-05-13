@@ -39,7 +39,7 @@ final class DoctrineFacilityPayloadHistoryRepository extends ServiceEntityReposi
 
     //TODO rajouter ignore
     //TODO rajouter include
-    public function search(SearchSiretFilters $filters, ?array $sorting, ?array $fields, ?int $limit): array
+    public function search(SearchSiretFilters $filters, ?array $sorting, ?int $limit): array
     {
         $qb = $this->createQueryBuilder('FacilityPayloadHistory')
             ->leftJoin('FacilityPayloadHistory.address', 'address')
@@ -107,10 +107,6 @@ final class DoctrineFacilityPayloadHistoryRepository extends ServiceEntityReposi
             elseif($sort->order === Order::descending) {
                 $qb->addOrderBy('FacilityPayloadHistory.' . $sort->field, 'DESC');
             }
-        }
-
-        foreach ($fields as $field) {
-            $qb->addSelect('FacilityPayloadHistory.' . $field);
         }
 
         return $qb->getQuery()->getResult();

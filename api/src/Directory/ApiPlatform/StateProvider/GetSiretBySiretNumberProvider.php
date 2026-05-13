@@ -46,7 +46,7 @@ final class GetSiretBySiretNumberProvider implements ProviderInterface
 
         try {
             $this->validator->validate($uriVariables['siret'], $fields);
-            $result = $this->action->__invoke($uriVariables['siret']);
+            $result = $this->action->__invoke($uriVariables['siret'], $fields);
         } catch (ObjectNotFoundException $e) {
             throw new NotFoundHttpException($e->getMessage(), $e);
         } catch (InvalidInputException $e) {

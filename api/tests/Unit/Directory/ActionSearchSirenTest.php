@@ -9,9 +9,11 @@ use App\Directory\ApiPlatform\ApiResource\SirenSearchRequestResource;
 use App\Directory\Doctrine\Entity\LegalUnitPayloadHistory;
 use App\Directory\Enum\EntityType;
 use App\Directory\Enum\LegalUnitAdministrativeStatus;
+use App\Directory\Enum\Order;
 use App\Directory\Input\SearchSirenFilters;
 use App\Directory\Input\SearchSirenFiltersAdministrativeStatus;
 use App\Directory\Input\SearchSirenFiltersBusinessName;
+use App\Directory\Input\SearchSirenSorting;
 use App\Directory\Repository\LegalUnitPayloadHistoryRepository;
 use PHPUnit\Framework\TestCase;
 
@@ -39,9 +41,7 @@ final class ActionSearchSirenTest extends TestCase
         $repository
             ->expects($this->once())
             ->method('search')
-            ->with(
-                $filters
-            )
+            ->with($filters)
             ->willReturn([$entity]);
 
         $action = new SearchSiren($repository);
@@ -73,8 +73,17 @@ final class ActionSearchSirenTest extends TestCase
         $filters->businessName = new SearchSirenFiltersBusinessName();
         $filters->businessName->businessName = 'test business name';
 
+        $sort1 = new SearchSirenSorting();
+        $sort1->order = Order::ascending;
+        $sort1->field = 'siren';
+
+        $sort2 = new SearchSirenSorting();
+        $sort2->order = Order::descending;
+        $sort2->field = 'administrativeStatus';
+
         $sorting = [
-            'businessName',
+            $sort1,
+            $sort2
         ];
 
         $input = new SirenSearchRequestResource();
@@ -180,9 +189,7 @@ final class ActionSearchSirenTest extends TestCase
         $repository
             ->expects($this->once())
             ->method('search')
-            ->with(
-                $filters
-            )
+            ->with($filters)
             ->willReturn([$entity]);
 
         $action = new SearchSiren($repository);
