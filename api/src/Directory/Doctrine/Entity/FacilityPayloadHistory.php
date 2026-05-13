@@ -7,6 +7,7 @@ namespace App\Directory\Doctrine\Entity;
 use App\Directory\Enum\DiffusionStatus;
 use App\Directory\Enum\FacilityAdministrativeStatus;
 use App\Directory\Enum\FacilityType;
+use App\Directory\ValueObjects\B2gAdditionalDataOutput;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -46,6 +47,21 @@ class FacilityPayloadHistory
     #[ORM\JoinColumn(referencedColumnName: 'id_instance', nullable: false)]
     private LegalUnitPayloadHistory $legalUnit;
 
+    public static function create(int $idInstance, string $siret, string $siren, string $name, FacilityType $facilityType, DiffusionStatus $diffusible, FacilityAdministrativeStatus $administrativeStatus, AddressRead $address, B2gAdditionalData $b2gAdditionalData, LegalUnitPayloadHistory $legalUnit): FacilityPayloadHistory
+    {
+        $self = new self();
+        $self->idInstance = $idInstance;
+        $self->siren = $siren;
+        $self->siret = $siret;
+        $self->name = $name;
+        $self->facilityType = $facilityType;
+        $self->diffusible = $diffusible;
+        $self->administrativeStatus = $administrativeStatus;
+        $self->address = $address;
+        $self->b2gAdditionalData = $b2gAdditionalData;
+        $self->legalUnit = $legalUnit;
+        return $self;
+    }
     public function getIdInstance(): int
     {
         return $this->idInstance;

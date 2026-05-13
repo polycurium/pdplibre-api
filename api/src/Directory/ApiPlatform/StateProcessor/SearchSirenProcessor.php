@@ -45,7 +45,7 @@ final class SearchSirenProcessor implements ProcessorInterface
         assert(SirenSearchRequestResource::class === $operation->getClass());
 
         try {
-            $this->validator->validate($data->fields, $data->filters, $data->sorting);
+            $this->validator->validate($data->filters, $data->fields, $data->sorting);
             return $this->action->__invoke($data);
         } catch (ObjectNotFoundException $e) {
             throw new NotFoundHttpException($e->getMessage(), $e);

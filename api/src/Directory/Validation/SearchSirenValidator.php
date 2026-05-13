@@ -23,7 +23,7 @@ final readonly class SearchSirenValidator
     /**
      * @param array<SearchSirenSorting> $sorting
      */
-    public function validate(?array $fields = null, ?SearchSirenFilters $filters = null, ?array $sorting = null): void
+    public function validate(SearchSirenFilters $filters, ?array $fields = null, ?array $sorting = null): void
     {
         $this->validateFields($fields);
         $this->validateFilters($filters);
@@ -50,7 +50,7 @@ final readonly class SearchSirenValidator
         }
     }
 
-    private function validateFilters(?SearchSirenFilters $filters): void
+    private function validateFilters(SearchSirenFilters $filters): void
     {
         if ($filters->siren !== null && !preg_match('/^\d{9}$/', $filters->siren->siren)) {
             throw new InvalidInputException(
@@ -72,7 +72,14 @@ final readonly class SearchSirenValidator
      */
     private function validateSorting(?array $sorting): void
     {
+        if (!$sorting) {
+            return;
+        }
+
         foreach ($sorting as $sort) {
+            if (!is_string($sort->field)) {
+                throw new InvalidInputException('sorting', 'sorting fields must be strings');
+            }
 
             if (!in_array($sort->field, self::ALLOWED_FIELDS, true)) {
                 throw new InvalidInputException(

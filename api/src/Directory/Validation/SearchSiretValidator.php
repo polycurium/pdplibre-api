@@ -109,6 +109,9 @@ final readonly class SearchSiretValidator
     private function validateSorting(?array $sorting): void
     {
         foreach ($sorting as $sort) {
+            if (!is_string($sort->field)) {
+                throw new InvalidInputException('sorting', 'sorting fields must be strings');
+            }
 
             if (!in_array($sort->field, self::ALLOWED_FIELDS, true)) {
                 throw new InvalidInputException(

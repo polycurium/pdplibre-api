@@ -40,6 +40,7 @@ final class ValidationSearchSirenTest extends TestCase
         $sorting2->order = Order::descending;
 
         $validator->validate(
+            $filters,
             [
                 'siren',
                 'businessName',
@@ -47,7 +48,6 @@ final class ValidationSearchSirenTest extends TestCase
                 'administrativeStatus',
                 'idInstance',
             ],
-            $filters,
             [$sorting, $sorting2],
         );
 
@@ -63,7 +63,19 @@ final class ValidationSearchSirenTest extends TestCase
             'fields must be an array of strings'
         );
 
+        $filters = new SearchSirenFilters();
+
+        $sirenFilter = new SearchSirenFiltersSiren();
+        $sirenFilter->siren = '123456789';
+
+        $businessNameFilter = new SearchSirenFiltersBusinessName();
+        $businessNameFilter->businessName = 'business name test';
+
+        $filters->siren = $sirenFilter;
+        $filters->businessName = $businessNameFilter;
+
         $validator->validate(
+            $filters,
             [123]
         );
     }
@@ -77,7 +89,19 @@ final class ValidationSearchSirenTest extends TestCase
             'Invalid field "invalid field". Allowed: siren, businessName, entityType, administrativeStatus, idInstance'
         );
 
+        $filters = new SearchSirenFilters();
+
+        $sirenFilter = new SearchSirenFiltersSiren();
+        $sirenFilter->siren = '123456789';
+
+        $businessNameFilter = new SearchSirenFiltersBusinessName();
+        $businessNameFilter->businessName = 'business name test';
+
+        $filters->siren = $sirenFilter;
+        $filters->businessName = $businessNameFilter;
+
         $validator->validate(
+            $filters,
             ['invalid field', 'siren']
         );
     }
@@ -99,8 +123,7 @@ final class ValidationSearchSirenTest extends TestCase
         );
 
         $validator->validate(
-            null,
-            $filters,
+            $filters
         );
     }
 
@@ -121,7 +144,6 @@ final class ValidationSearchSirenTest extends TestCase
         );
 
         $validator->validate(
-            null,
             $filters,
         );
     }
@@ -136,8 +158,19 @@ final class ValidationSearchSirenTest extends TestCase
 
         $this->expectException(InvalidInputException::class);
 
+        $filters = new SearchSirenFilters();
+
+        $sirenFilter = new SearchSirenFiltersSiren();
+        $sirenFilter->siren = '123456789';
+
+        $businessNameFilter = new SearchSirenFiltersBusinessName();
+        $businessNameFilter->businessName = 'business name test';
+
+        $filters->siren = $sirenFilter;
+        $filters->businessName = $businessNameFilter;
+
         $validator->validate(
-            null,
+            $filters,
             null,
             [$sorting],
         );
@@ -155,8 +188,19 @@ final class ValidationSearchSirenTest extends TestCase
             'Sorting order must exist'
         );
 
+        $filters = new SearchSirenFilters();
+
+        $sirenFilter = new SearchSirenFiltersSiren();
+        $sirenFilter->siren = '123456789';
+
+        $businessNameFilter = new SearchSirenFiltersBusinessName();
+        $businessNameFilter->businessName = 'business name test';
+
+        $filters->siren = $sirenFilter;
+        $filters->businessName = $businessNameFilter;
+
         $validator->validate(
-            null,
+            $filters,
             null,
             [$sorting],
         );

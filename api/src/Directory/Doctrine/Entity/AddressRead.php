@@ -38,6 +38,20 @@ class AddressRead
     #[ORM\Column(length: 100)]
     private string $countryName;
 
+    public static function create(string $addressLine1, string $addressLine2, string $addressLine3, string $postalCode, string $countrySubdivision, string $locality, string $countryCode, string $countryName): self
+    {
+        $self = new self();
+        $self->addressLine1 = $addressLine1;
+        $self->addressLine2 = $addressLine2;
+        $self->addressLine3 = $addressLine3;
+        $self->postalCode = $postalCode;
+        $self->countrySubdivision = $countrySubdivision;
+        $self->locality = $locality;
+        $self->countryCode = $countryCode;
+        $self->countryName = $countryName;
+        return $self;
+    }
+
     public function getAddressLine1(): string
     {
         return $this->addressLine1;

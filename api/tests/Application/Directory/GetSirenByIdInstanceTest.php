@@ -18,8 +18,10 @@ final class GetSirenByIdInstanceTest extends WebTestCase
 
         $em = $container->get('doctrine')->getManager();
 
-        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\LegalUnitPayloadHistory e')
-            ->execute();
+        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\FacilityPayloadHistory e')->execute();
+        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\AddressRead e')->execute();
+        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\B2gAdditionalData e')->execute();
+        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\LegalUnitPayloadHistory e')->execute();
 
         $entity = LegalUnitPayloadHistory::create(
             idInstance: 1,
@@ -52,8 +54,10 @@ final class GetSirenByIdInstanceTest extends WebTestCase
 
         $em = $container->get('doctrine')->getManager();
 
-        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\LegalUnitPayloadHistory e')
-            ->execute();
+        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\FacilityPayloadHistory e')->execute();
+        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\AddressRead e')->execute();
+        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\B2gAdditionalData e')->execute();
+        $em->createQuery('DELETE FROM App\Directory\Doctrine\Entity\LegalUnitPayloadHistory e')->execute();
 
         $entity = LegalUnitPayloadHistory::create(
             idInstance: 1,

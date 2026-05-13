@@ -41,6 +41,17 @@ class B2gAdditionalData
     #[ORM\Column]
     private bool $serviceCodeStatus;
 
+    public static function create(bool $pm, bool $pmOnly, bool $managesPaymentStatus, bool $managesLegalCommitmentCode, bool $managesLegalCommitmentOrServiceCode, bool $serviceCodeStatus): B2gAdditionalData
+    {
+        $self = new self();
+        $self->pm = $pm;
+        $self->pmOnly = $pmOnly;
+        $self->managesPaymentStatus = $managesPaymentStatus;
+        $self->managesLegalCommitmentCode = $managesLegalCommitmentCode;
+        $self->managesLegalCommitmentOrServiceCode = $serviceCodeStatus;
+        $self->serviceCodeStatus = $serviceCodeStatus;
+        return $self;
+    }
     public function getPm(): bool
     {
         return $this->pm;

@@ -63,11 +63,9 @@ final class SiretSearchRequestResource
     #[Assert\Valid]
     public SearchSiretFilters $filters;
 
-    #[Assert\NotBlank]
     #[Assert\Valid]
     public ?array $sorting = null;
 
-    #[Assert\NotBlank]
     #[Assert\Valid]
     public ?array $fields = null;
 
